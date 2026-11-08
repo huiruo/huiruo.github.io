@@ -1,0 +1,376 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="preload" as="image" href="/logo.svg"/><link rel="preload" as="image" href="/github.svg"/><link rel="preload" as="image" href="../assets/img-engine/%E4%BD%9C%E7%94%A8%E5%9F%9F%E5%92%8C%E9%97%AD%E5%8C%85%E4%BE%8B%E5%AD%90-%E6%89%A7%E8%A1%8CaInner.png"/><link rel="preload" as="image" href="../assets/img-engine/%E4%BD%9C%E7%94%A8%E5%9F%9F%E5%92%8C%E9%97%AD%E5%8C%85%E4%BE%8B%E5%AD%90-add.png"/><link rel="stylesheet" href="/_next/static/css/08ccca47812646bd.css" data-precedence="next"/><link rel="preload" as="script" fetchPriority="low" href="/_next/static/chunks/webpack-6a2c37dabd206ff9.js"/><script src="/_next/static/chunks/f14ca715-4f4dbb6482451e0a.js" async=""></script><script src="/_next/static/chunks/5465-2089315387f88b08.js" async=""></script><script src="/_next/static/chunks/main-app-29466430c79adc42.js" async=""></script><script src="/_next/static/chunks/7068-a4cd9a6e0af45b4d.js" async=""></script><script src="/_next/static/chunks/7221-931ccc86aa295cd1.js" async=""></script><script src="/_next/static/chunks/app/layout-09e38df7cdd64f73.js" async=""></script><link data-rh="true" rel="icon" href="/logo.svg"/><title>Block-chain</title><meta name="description" content="block-chain"/><script src="/_next/static/chunks/polyfills-78c92fac7aa8fdd8.js" noModule=""></script></head><body><div class="wrapper-box"><nav class="nav"><style data-emotion="css 159i7d">.css-159i7d{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:justify;-webkit-justify-content:space-between;justify-content:space-between;height:100%;}</style><div class="MuiBox-root css-159i7d"><div class="flex"><style data-emotion="css 1lkqgm2">.css-1lkqgm2{width:36px;margin-left:10px;border-radius:20%;}</style><img class="MuiBox-root css-1lkqgm2" alt="icon" src="/logo.svg"/></div><style data-emotion="css 1wv2h5q">.css-1wv2h5q{width:30px;margin-right:10px;border-radius:50%;}</style><img class="MuiBox-root css-1wv2h5q" alt="icon" src="/github.svg"/></div></nav><div class="main-container"><div class="sidebar-container"><aside class="sidebar-content"><nav><ul class="sidebar-ul"><li><div class="flex sidebar_menuLink__JLsHD sidebar_menucaret__je0_C">React</div><ul></ul></li><li><div class="flex sidebar_menuLink__JLsHD sidebar_menucaret__je0_C">Nextjs</div><ul></ul></li><li><div class="flex sidebar_menuLink__JLsHD sidebar_menucaret__je0_C">Vue</div><ul></ul></li><li><div class="flex sidebar_menuLink__JLsHD sidebar_menucaret__je0_C">JavaScript</div><ul></ul></li><li><div class="flex sidebar_menuLink__JLsHD sidebar_menucaret__je0_C">Html css</div><ul></ul></li><li><div class="flex sidebar_menuLink__JLsHD sidebar_menucaret__je0_C">Web optimization</div><ul></ul></li><li><div class="flex sidebar_menuLink__JLsHD">Parsing interpretation compilation</div><ul><li><a style="color:inherit" href="/parsing-inte-co/parsesAST/">Parses-&gt;AST-&gt;Bytecode</a></li><li><a style="color:inherit" href="/parsing-inte-co/closureMemory/">Closure-Memory Life Cycle</a></li><li><a style="color:inherit" href="/parsing-inte-co/babelConvertsEs6/">Babel converts es6</a></li><li><a style="color:inherit" href="/parsing-inte-co/verdaccio/">Verdaccio</a></li><li><a style="color:inherit" href="/parsing-inte-co/pre-analysis/">Pre-analysis-variable</a></li><li><a style="color:inherit" href="/parsing-inte-co/scope/">Scope</a></li><li><a style="color:inherit" href="/parsing-inte-co/contextFunction/">Execution context-function call stack</a></li><li><div class="flex sidebar_menuLink__JLsHD sidebar_menucaret__je0_C">Js Modules</div><ul></ul></li></ul></li><li><div class="flex sidebar_menuLink__JLsHD sidebar_menucaret__je0_C">Http-browser</div><ul></ul></li><li><div class="flex sidebar_menuLink__JLsHD sidebar_menucaret__je0_C">Algorithm</div><ul></ul></li><li><div class="flex sidebar_menuLink__JLsHD sidebar_menucaret__je0_C">Docker</div><ul></ul></li><li><div class="flex sidebar_menuLink__JLsHD sidebar_menucaret__je0_C">Design patterns</div><ul></ul></li><li><a style="color:inherit" href="/resume/">Resume</a></li></ul></nav></aside></div><main class="md-container"><div class="empty-div"></div><article class="article"><h2>闭包: 能够读取其他函数内部变量的函数</h2>
+<h3><code>闭包的本质:</code></h3>
+<blockquote>
+<p>作用域大部分时候是静态作用域,又叫词法作用域,这是因为作用域的嵌套关系可以在语法分析时确定;</p>
+</blockquote>
+<blockquote>
+<p>闭包保持着对父函数得作用域引用，这在语法分析已经确定，父级函数的执行上下文在运行时赋值，所以闭包return的值就是执行上下文赋值的值，也就是父级函数执行之后不会销毁引用的作用域。</p>
+</blockquote>
+<p>本质:<code>就是上级作用域内变量的生命周期，因为被下级作用域内引用，而没有被释放。</code></p>
+<p>先要明白作用域和上下文: <code>三种上下文之1:函数执行上下文</code>：存在无数个，只有在函数被调用的时候才会被创建，每次调用函数都会创建一个新的执行上下文。函数作用域是在函数声明的时候就已经确定了，而函数执行上下文是在函数调用时创建的。</p>
+<p>函数的特殊属性使其能够记住其创建时所在执行环境的的词法环境，当离开该执行环境并执行时仍然能够访问其词法环境的这一过程就叫做“闭包”,父级函数的执行上下文在运行时赋值，所以闭包return的值就是执行上下文赋值的值，也就是父级函数执行之后不会销毁引用的作用域。</p>
+<p>参考:<a href="./step3-%E6%89%A7%E8%A1%8C%E4%B8%8A%E4%B8%8B%E6%96%87-%E5%87%BD%E6%95%B0%E8%B0%83%E7%94%A8%E6%A0%88-this">step3-执行上下文-函数调用栈-this</a></p>
+<p>作用域参考：<a href="./step2-%E4%BD%9C%E7%94%A8%E5%9F%9F-%E5%9D%97%E7%BA%A7%E4%BD%9C%E7%94%A8%E5%9F%9F%E5%8E%9F%E7%90%86">step2-作用域-块级作用域原理-作用域和闭包</a></p>
+<pre><code>作用域大部分时候是静态作用域,又叫词法作用域,这是因为作用域的嵌套关系可以在语法分析时确定
+</code></pre>
+<p>在函数外部自然无法读取函数内的局部变量;</p>
+<p>在一个函数内部定义函数--&gt;闭包就产生了；</p>
+<h3>闭包和作用域</h3>
+<pre><code class="language-js">function func() {
+  var a = 1;
+  (function () {
+    console.log(a)
+  }());
+}
+func(); // 1
+</code></pre>
+<h3>如何从外部读取局部变量？</h3>
+<p>无法读取函数内变量：</p>
+<pre><code class="language-js">function f1(){
+  var n = 999;
+}
+
+console.log(n);
+/*
+Uncaught ReferenceError: n is not defined
+*/
+</code></pre>
+<p>使用闭包： 就是在一个函数内部创建另一个函数。f2 可以读取 f1 中的局部变量，那么只要把 f2 作为返回值，我们不就可以在 f1 外部读取它的内部变量</p>
+<pre><code class="language-js">function f1() {
+  var n = 999;
+  function f2() {
+    console.log(n);
+    return n
+  }
+
+  return f2;
+}
+
+var result = f1();
+debugger
+console.log(&#x27;res:&#x27;,result()); // 999
+</code></pre>
+<h2>闭包和预解析</h2>
+<p>闭包（closure）是一个函数以及其捆绑的周边环境状态（lexical environment，词法环境）的引用的组合。</p>
+<p>https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Closures</p>
+<pre><code class="language-js">function foo() {
+    var d = 20
+    return function inner(a, b) {
+        const c = a + b + d
+        return c
+    }
+}
+const f = foo()
+</code></pre>
+<p>上面这段代码的执行过程：</p>
+<ol>
+<li>当调用 foo 函数时，foo 函数会将它的内部函数 inner 返回给全局变量 f；</li>
+<li>然后 foo 函数执行结束，执行上下文被 V8 销毁；</li>
+<li>虽然 foo 函数的执行上下文被销毁了，但是依然存活的 inner 函数引用了 foo 函数作用域中的变量 d。</li>
+</ol>
+<p>foo 函数的执行上下文虽然被销毁了，但是 inner 函数引用的 foo 函数中的变量却不能被销毁，那么 V8 就需要为这种情况做特殊处理，需要保证即便 foo 函数执行结束，但是 foo 函数中的 d 变量依然保持在内存中，不能随着 foo 函数的执行上下文被销毁掉。</p>
+<p>那么怎么处理呢？</p>
+<p>在执行 foo 函数的阶段，虽然采取了惰性解析，不会解析和执行 foo 函数中的 inner 函数，但是 V8 还是需要预解析器判断 inner 函数是否引用了 foo 函数中的变量。</p>
+<p>预解释不生成 ast，不生成作用域，只是快速查看内部函数是否引用了外部的变量，快速查看是否存在语法错误，这种执行速度非常快。</p>
+<h3>预解析器如何解决闭包所带来的问题？</h3>
+<p>当解析顶层代码的时候，遇到了一个函数，那么预解析器并不会直接跳过该函数，而是对该函数做一次快速的预解析，检查函数内部是否引用了外部变量，如果引用了外部的变量，预解析器会将栈中的变量复制到堆中，并追加一个闭包引用，这样当上层函数执行结束之后，只要闭包突然引用了该变量，那么V8也不会销毁改变量,在下次执行到该函数的时候，直接使用堆中的引用，这样就解决了闭包所带来的问题。</p>
+<h2>调用栈的角度，理解闭包</h2>
+<p>继续分析没被销毁原因：
+在执行上下文的创建阶段，跟着被创建的还有作用域链。闭包正是一层层作用域链的关系，实现了对父作用域执行上下文信息的保留。</p>
+<p><code>作用域在嵌套的情况下，外部作用域是不能访问内部作用域的变量的。一般来说，函数出栈后，我们都没有办法再访问到函数内部的变量了。但闭包可不是这样:</code></p>
+<pre><code class="language-js">function aFn(a) {
+    var a1 = 1
+    var a2 = 2
+    return function aInner(b) {
+        console.log(&#x27;a1&#x27;, a1)
+        return a + b;
+    };
+}
+
+debugger
+var add = aFn(10);
+
+add(20)
+</code></pre>
+<p>当执行到<code>add(20)</code>闭包让函数的执行上下文存在aFn的执行上下文a,a1，aFn的a,a1没被销毁,但是a2已经被销毁
+<img src="../assets/img-engine/%E4%BD%9C%E7%94%A8%E5%9F%9F%E5%92%8C%E9%97%AD%E5%8C%85%E4%BE%8B%E5%AD%90-%E6%89%A7%E8%A1%8CaInner.png" alt=""/></p>
+<p>当执行到add,看截图add:ƒ aInner(b),并不是指向初始化的：add:undefined
+<img src="../assets/img-engine/%E4%BD%9C%E7%94%A8%E5%9F%9F%E5%92%8C%E9%97%AD%E5%8C%85%E4%BE%8B%E5%AD%90-add.png" alt=""/></p>
+<p>当add执行的时候，调用的是aInner(),可见Closure-闭合/闭包：</p>
+<pre><code class="language-js">{
+    a: 10
+    a1: 1
+}
+</code></pre>
+<h3>使用闭包的注意点</h3>
+<ul>
+<li>
+<p>由于闭包会使得函数中的变量都被保存在内存中，内存消耗很大，所以不能滥用闭包，否则会造成网页的性能问题，在 IE 中可能导致内存泄露。解决方法是，在退出函数之前，将不使用的局部变量全部删除。</p>
+</li>
+<li>
+<p>闭包会在父函数外部，改变父函数内部变量的值。所以，如果你把父函数当作对象（object）使用，把闭包当作它的公用方法（Public Method），把内部变量当作它的私有属性（private value），这时一定要小心，不要随便改变父函数内部变量的值。</p>
+</li>
+</ul>
+<h2>题1-但实际是无论点击哪个目标都会弹出数字5</h2>
+<p>想每次点击对应目标时弹出对应的数字下标 0~4</p>
+<pre><code class="language-js">function onMyLoad() {
+  var arr = document.getElementsByTagName(&quot;p&quot;);
+  for (var i = 0; i &amp;lt; arr.length; i++) {
+    arr[i].onclick = function () {
+      alert(i);
+    }
+  }
+}
+</code></pre>
+<p>问题所在：arr 中的每一项的 onclick 均为一个函数实例(Function 对象)，这个函数实例也产生了一个闭包域，这个闭包域引用了外部闭包域的变量，其 function scope 的 closure 对象有个名为 i 的引用，外部闭包域的私有变量内容发生变化，内部闭包域得到的值自然会发生改变。</p>
+<p>解决办法一
+解决思路：增加若干个对应的闭包域空间(这里采用的是匿名函数)，专门用来存储原先需要引用的内容(下标)，不过只限于基本类型(基本类型值传递，对象类型引用传递)。</p>
+<pre><code class="language-js">//声明一个匿名函数，若传进来的是基本类型则为值传递，故不会对实参产生影响,
+//该函数对象有一个本地私有变量 arg(形参) ，该函数的 function scope 的 closure 对象属性有两个引用，一个是 arr，一个是 i
+//尽管引用 i 的值随外部改变 ，但本地私有变量(形参) arg 不会受影响，其值在一开始被调用的时候就决定了
+for (var i = 0; i &amp;lt; arr.length; i++) {
+  (function (arg) {
+    arr[i].onclick = function () {
+      // onclick 函数实例的 function scope 的 closure 对象属性有一个引用 arg,
+      alert(arg);
+      //只要 外部空间的 arg 不变，这里的引用值当然不会改变
+    }
+  })(i); //立刻执行该匿名函数，传递下标 i (实参)
+}
+</code></pre>
+<p>解决办法二
+解决思路：将事件绑定在新增的匿名函数返回的函数上，此时绑定的函数中的 function scope 中的 closure 对象的 引用 arg 是指向将其返回的匿名函数的私有变量 arg</p>
+<pre><code class="language-js">for (var i = 0; i &amp;lt; arr.length; i++) {
+  arr[i].onclick = (function (arg) {
+    return function () {
+      alert(arg);
+    }
+  })(i);
+}
+</code></pre>
+<p>使用 ES6 新语法 let 关键字</p>
+<pre><code class="language-js">for (var i = 0; i &amp;lt; arr.length; i++) {
+  let j = i; // 创建一个块级变量
+  arr[i].onclick = function () {
+    alert(j);
+  }
+}
+</code></pre>
+<h2>题2-经典问题setTimeout</h2>
+<p>原因是：setTimeout是异步操作不会马上执行，event loop会等主线机制完成后执行，
+需要等待到函数调用栈清空之后才开始执行。即所有可执行代码执行完毕之后，才会开始执行由setTimeout定义的操作。
+而这些操作进入队列的顺序，则由设定的延迟时间来决定。
+因此在上面这个例子中，即使我们将延迟时间设置为0，它定义的操作仍然需要等待所有代码执行完毕之后才开始执行。这里的延迟时间，并非相对于setTimeout执行这一刻，而是相对于其他代码执行完毕这一刻。</p>
+<p>所以上面的例子执行结果就非常容易理解了。而for是同步执行，因此执行setTimeout的时候for循环已经执行完了，结果打印的值为3个3</p>
+<pre><code class="language-js">function testBi() {
+    const testArr = [1, 2, 3]
+    for (var i = 0; i &lt; testArr.length; i++) {
+        setTimeout(function () {
+            console.log(&#x27;闭包题目：&#x27;, i)
+        }, 0)
+    }
+}
+testBi() // 输出 333
+</code></pre>
+<h3>方法1可使用闭包的方法解决</h3>
+<p>解决思路：增加若干个对应的闭包域空间(这里采用的是匿名函数)，
+专门用来存储原先需要引用的内容(下标)，不过只限于基本类型(基本类型值传递，对象类型引用传递)。</p>
+<p>声明一个匿名函数，若传进来的是基本类型则为值传递，故不会对实参产生影响,
+该函数对象有一个本地私有变量 arg(形参) ，该函数的 function scope 的 closure 对象属性有两个引用，一个是 arr，一个是 i
+尽管引用 i 的值随外部改变 ，但本地私有变量(形参) arg 不会受影响，其值在一开始被调用的时候就决定了</p>
+<p>// 而我们想要让输出结果依次执行，我们就必须借助闭包的特性，每次循环时，将i值保存在一个闭包中，当setTimeout中定义的操作执行时，则访问对应闭包保存的i值即可。</p>
+<pre><code class="language-js">function testBi2() {
+    const testArr = [1, 2, 3]
+    for (var i = 0; i &lt; testArr.length; i++) {
+        (function (arg) {       //外部函数
+            setTimeout(function () {     //内部函数
+                // 只要 外部空间的 arg 不变，这里的引用值当然不会改变
+                console.log(&#x27;闭包题目@：&#x27;, arg)
+            })
+        })(i)
+    }
+}
+testBi2() // 输出 1,2,3
+</code></pre>
+<h3>2.使用let解决</h3>
+<p>遍历i是通过 let 关键字声明的：通过 let 和 const 关键字声明的变量是拥有块级作用域（指的是任何在 <!-- --> 中的内容）。</p>
+<p>在每次的遍历过程中，i都有一个新值，并且每个值都在循环内的作用域中，使其结果依次输出0,1,2</p>
+<pre><code class="language-js">for (var i = 0; i&lt; 10; i++){
+	setTimeout(() =&gt; {
+		console.log(i)kk;
+    }, 1000)
+}
+
+// 解法一：
+for (let i = 0; i&lt; 10; i++){
+  setTimeout(() =&gt; {
+    console.log(i);
+  }, 1000)
+}
+
+// 解法二：
+for (var i = 0; i&lt; 10; i++){
+  ((i) =&gt; {
+    setTimeout(() =&gt; {
+      console.log(i);
+    }, 1000)
+ })(i)
+}
+</code></pre>
+<h2>闭包使用场景</h2>
+<h3>可以读取函数内部的变量,让这些变量的值始终保持在内存中</h3>
+<pre><code class="language-js">function f1() {
+  var n = 999;
+  nAdd = function () { n += 1 }
+  function f2() {
+    alert(n);
+  }
+  return f2;
+}
+
+var result = f1();
+
+result(); // 999
+nAdd();
+result(); // 100
+</code></pre>
+<p>在这段代码中，result 实际上就是闭包 f2 函数。它一共运行了两次，第一次的值是 999，第二次的值是 1000。这证明了，函数 f1 中的局部变量 n 一直保存在内存中，并没有在 f1 调用后被自动清除。</p>
+<p>为什么会这样呢 ？</p>
+<p>原因就在于 f1 是 f2 的父函数，而 f2 被赋给了一个全局变量，这导致 f2 始终在内存中，而 f2 的存在依赖于 f1，因此 f1 也始终在内存中，不会在调用结束后，被垃圾回收机制（garbage collection）回收。</p>
+<p>这段代码中另一个值得注意的地方，就是</p>
+<ul>
+<li>
+<p><code>nAdd=function(){ n+=1 }</code> 这一行，首先在 nAdd 前面没有使用 var 关键字，因此 nAdd 是一个全局变量，而不是局部变量。</p>
+</li>
+<li>
+<p>其次，nAdd 的值是一个匿名函数（anonymous function），而这个匿名函数本身也是一个闭包，所以 nAdd 相当于是一个 setter，可以在函数外部对函数内部的局部变量进行操作。</p>
+</li>
+</ul>
+<h3>模仿块级作用域</h3>
+<p>因此可以利用闭包的特性来模仿块级作用域。</p>
+<p>这个例子闭包就是那个匿名函数，这个闭包可以当函数testFn内部的活动变量，又能保证自己内部的变量在自执行后直接销毁。
+这种写法经常用在全局环境中，可以避免添加太多全局变量和全局函数，特别是多人合作开发的时候可以减少因此产生的命名冲突等，避免污染全局环境。</p>
+<pre><code class="language-js">function testFn(num) {
+    (function () {
+        for (var i = 0; i &lt; num.length; i++) {
+            num++
+        }
+    }).call() //声明一个函数立即调用以后，浏览器刷新页面会报错，可以用一个小括号把整段函数包起来。
+    console.log(i)//undefined
+}
+</code></pre>
+<h3>闭包可以让一个变量长期驻扎在内存中，避免全局变量的污染</h3>
+<pre><code class="language-js">var res = (function () {
+    var count = 29;
+    return function add() {
+        // return count++;
+        console.log(count);
+        count++;
+    }
+})();
+console.log(res());
+console.log(res());
+</code></pre>
+<h3>封装私有变量</h3>
+<p>我们可以把函数当作一个范围，函数内部的变量就是私有变量，在外部无法引用，但是我们可以通过闭包的特点来访问私有变量。</p>
+<pre><code class="language-js">var person = function () {
+    //变量作用域为函数内部，外部无法访问
+    var name = &quot;default&quot;;
+    return {
+        getName: function () {
+            return name;
+        },
+        setName: function (newName) {
+            name = newName;
+        }
+    }
+}();
+
+console.log(&#x27;封装私有变量:&#x27;, person.name);//直接访问，结果为undefined
+console.log(&#x27;封装私有变量:&#x27;, person.getName()); // default
+person.setName(&quot;abruzzi&quot;);
+console.log(&#x27;封装私有变量:&#x27;, person.getName()); // abruzzi
+</code></pre>
+<h2>内存生命周期和泄漏场景</h2>
+<p>最基础的造成内存泄漏的几个点，应该还有更深层次一点的。而内存泄漏最核心的还是因为垃圾机制，全局变量或者是被全局变量引用，垃圾机制就无法回收，要是一直需要使用的还好，要是一些用完一次就不再使用的没有释放，那么积累的多了就容易造成内存溢出。</p>
+<p>JavaScript 具有自动垃圾收集机制（GC：Garbage Collecation），也就是说，执行环境会负责管理代码执行过程中使用的内存。</p>
+<h2>JavaScript内存的生命周期：</h2>
+<ol>
+<li>内存分配：分配你所需要的暂时使用内存大小，当申明变量、函数、对象的时候，系统会自动为他们分配内存</li>
+<li>内存使用：即读写内存，在每次创建字变量、函数、对象的时候，程序会分配新内存来存储实体。</li>
+<li>内存回收：对于不需要使用的内存将其释放。</li>
+</ol>
+<p>内存也是有生命周期的，不管什么程序语言，一般可以按顺序分为三个周期：</p>
+<ul>
+<li>分配期：分配所需要的内存</li>
+<li>使用期：使用分配到的内存（读、写）</li>
+<li>释放期：不需要时将其释放和归还</li>
+</ul>
+<p>为了便于理解，下面用一个简单的例子来解释JavaScript内存的生命周期。</p>
+<pre><code class="language-js">var a = 50;  // 在内存中给数值变量分配空间
+alert(a + 100);  // 使用内存
+a = null; // 使用完毕之后，释放内存空间
+</code></pre>
+<h2>实现垃圾回收的两种常见算法:引用计数和标记清除</h2>
+<ol>
+<li>标记清除</li>
+</ol>
+<p>标记清除法是现代浏览器常用的一种垃圾收集方式，当变量进入环境（即在一个函数中声明一个变量）时，就将此变量标记为“进入环境”，进入环境的变量是不能被释放，因为只有执行流进入相应的环境，就可能会引用它们。</p>
+<p>而当变量离开环境时，就标记为“离开环境”。</p>
+<p>垃圾收集器在运行时会给储存在内存中的所有变量加上标记，然后会去掉环境中的变量以及被环境中的变量引用的变量的标记，当执行完毕那些没有存在引用无法访问的变量就被加上标记，最后垃圾收集器完成清除工作，释放掉那些打上标记的变量所占的内存。</p>
+<p>标记清除之所以不存在循环引用的问题，是因为当函数执行完毕之后，对象A和B就已经离开了所在的作用域，此时两个变量被标记为“离开环境”，等待被垃圾收集器回收，最后释放其内存。</p>
+<ol start="2">
+<li>引用计数
+引用计数（reference counting）：当声明一个变量并将一个引用类型复制给该变量时，则这个值引用就加1，相反，如果包含这个值的变量又取得另外一个值，那么这个值的引用就减1，当引用次数变为0，则说明这个值不再用到了，这时就可以将这块内存释放。</li>
+</ol>
+<h2>JavaScript中涉及内存泄漏的几种场景：</h2>
+<h3>场景1. 全局变量引起的内存泄漏：</h3>
+<p>根据JavaScript的垃圾回收机制我们知道，全局变量是不会被回收的，所以一些意外的、不需要的全局变量多了，没有释放，就造成了内存泄漏。
+例：不断地创建全局变量，不管有没有用到它们，它们都将滞留在程序的整个执行过程中。如果这些变量是深层嵌套对象，将会浪费大量内存。</p>
+<h3>场景2. 闭包：</h3>
+<p>闭包其实也是跟全局变量挂钩了，但是闭包只是因为被全局变量引用了，内部的变量因为被闭包引用得不到释放，也会造成内存泄漏。
+因为Javascript范围的限制，许多实现依赖Javascript闭包。闭包可以导致内存泄漏是因为内部方法保持一个对外部方法变量的引用，所以尽管方法返回了内部方法还可以继续访问在外部方法中定义的私有变量。最好的做法是在页面重载前断开所有的事件处理器。</p>
+<p>举例说明：
+运行下面的代码，会发现已经造成了大量的内存泄露，每秒泄露1M的内存，显然光靠垃圾回收器是无法帮助你的了。由上面的代码来看，似乎是longstr在每次replaceThing调用的时候都没有得到回收。每一个theThing结构都含有一个longstr结构列表。每一秒当我们调用 replaceThing, 它就会把当前的指向传递给priorThing。但是到这里我们也会看到并没有什么问题，因为priorThing每回也是先解开上次函数的指向才会接受新的赋值。并且所有的这一切都是发生在replaceThing函数体当中，按常理来说当函数体结束之后，函数中的本地变量也将会被垃圾回收器回收，也就不会出现内存泄露的问题了，但是为什么会出现上面的错误呢？
+这是因为longstr的定义是在一个闭包中进行的，而它又被其他的闭包所引用，js规定，在闭包中引入闭包外部的变量时，当闭包结束时此对象无法被垃圾回收。</p>
+<pre><code class="language-js">var theThing = null; 
+var replaceThing = function () { 
+    var priorThing = theThing; 
+    var unused = function () { 
+        if (priorThing) {       
+            console.log(&quot;hi&quot;);     
+        }   
+    }; 
+    theThing = {     
+        longStr: new Array(100).join(&#x27;*&#x27;),
+        someMethod: function () {       
+            console.log(someMessage);  
+        }   
+    }; 
+};
+setInterval(replaceThing, 1000);
+</code></pre>
+<h3>场景3.计时器、回调、监听等事件没有移除：</h3>
+<pre><code>计时器、回调、事件监听等没有清除是一直存在的，一直存在没有被释放就会造成内存泄漏。
+为了增强网站的交互性或者是制作一些浮华的动画，你可能会创建大量的事件监听器。而用户在你的单页面应用中移向其他页面时，你又忘记移除这些监听器，那么也可能会导致内存泄漏。当用户在这些页面来回移动的时候，这些监听器会不断增加。
+</code></pre>
+<h3>场景4.给DOM添加属性或方法：</h3>
+<p>给DOM添加点击方法、添加属性等，也会造成变量引用得不到释放，造成内存泄漏。
+例移除 DOM 元素：这个问题很常见，类似于全局变量导致的内存泄漏。DOM 元素存在于对象图内存和 DOM 树中。用例子来解释可能会更好：</p>
+<pre><code class="language-js">var terminator = document.getElementById(&#x27;terminate&#x27;);
+var badElem = document.getElementById(&#x27;toDelete&#x27;);
+terminator.addEventListener(&#x27;click&#x27;, function()  {
+  badElem.remove();
+});
+</code></pre>
+<p>在你通过 id = ‘terminate’ 点击了按钮之后，toDelete 会从 DOM 中移除。不过，由于它仍然被监听器引用，为这个对象分配的内存并不会被释放。</p>
+<pre><code class="language-js">var terminator = document.getElementById(&#x27;terminate&#x27;);
+terminator.addEventListener(&#x27;click&#x27;, function()  {
+  var badElem = document.getElementById(&#x27;toDelete&#x27;);
+  badElem.remove();
+});
+</code></pre>
+<p>badElem 是局部变量，在移除操作完成之后，内存将会被垃圾回收器回收。</p>
+<h3>场景5.循环引用</h3>
+<pre><code>简单的例子：一个 DOM 对象被一个 Javascript 对象引用，与此同时又引用同一个或其它的 Javascript 对象，这个 DOM 对象可能会引发内存泄露。这个 DOM 对象的引用将不会在脚本停止的时候被垃圾回收器回收。要想破坏循环引用，引用 DOM 元素的对象或 DOM 对象的引用需要被赋值为null
+</code></pre></article></main></div></div><script src="/_next/static/chunks/webpack-6a2c37dabd206ff9.js" async=""></script><script>(self.__next_f=self.__next_f||[]).push([0]);self.__next_f.push([2,null])</script><script>self.__next_f.push([1,"1:HL[\"/_next/static/css/08ccca47812646bd.css\",\"style\"]\n"])</script><script>self.__next_f.push([1,"2:I[75726,[],\"\"]\n4:I[31699,[],\"\"]\n5:I[22579,[],\"\"]\n6:I[76270,[\"7068\",\"static/chunks/7068-a4cd9a6e0af45b4d.js\",\"7221\",\"static/chunks/7221-931ccc86aa295cd1.js\",\"3185\",\"static/chunks/app/layout-09e38df7cdd64f73.js\"],\"NavWrapper\"]\n7:I[88961,[\"7068\",\"static/chunks/7068-a4cd9a6e0af45b4d.js\",\"7221\",\"static/chunks/7221-931ccc86aa295cd1.js\",\"3185\",\"static/chunks/app/layout-09e38df7cdd64f73.js\"],\"Sidebar\"]\n9:I[83141,[],\"\"]\na:[]\n"])</script><script>self.__next_f.push([1,"0:[[[\"$\",\"link\",\"0\",{\"rel\":\"stylesheet\",\"href\":\"/_next/static/css/08ccca47812646bd.css\",\"precedence\":\"next\",\"crossOrigin\":\"$undefined\"}]],[\"$\",\"$L2\",null,{\"buildId\":\"idwNcjK9Yt81I_gQ2xKBl\",\"assetPrefix\":\"\",\"initialCanonicalUrl\":\"/parsing-inte-co/closureMemory/\",\"initialTree\":[\"\",{\"children\":[\"parsing-inte-co\",{\"children\":[\"closureMemory\",{\"children\":[\"__PAGE__\",{}]}]}]},\"$undefined\",\"$undefined\",true],\"initialSeedData\":[\"\",{\"children\":[\"parsing-inte-co\",{\"children\":[\"closureMemory\",{\"children\":[\"__PAGE__\",{},[[\"$L3\",[[\"$\",\"h2\",null,{\"children\":\"闭包: 能够读取其他函数内部变量的函数\"}],\"\\n\",[\"$\",\"h3\",null,{\"children\":[\"$\",\"code\",null,{\"children\":\"闭包的本质:\"}]}],\"\\n\",[\"$\",\"blockquote\",null,{\"children\":[\"\\n\",[\"$\",\"p\",null,{\"children\":\"作用域大部分时候是静态作用域,又叫词法作用域,这是因为作用域的嵌套关系可以在语法分析时确定;\"}],\"\\n\"]}],\"\\n\",[\"$\",\"blockquote\",null,{\"children\":[\"\\n\",[\"$\",\"p\",null,{\"children\":\"闭包保持着对父函数得作用域引用，这在语法分析已经确定，父级函数的执行上下文在运行时赋值，所以闭包return的值就是执行上下文赋值的值，也就是父级函数执行之后不会销毁引用的作用域。\"}],\"\\n\"]}],\"\\n\",[\"$\",\"p\",null,{\"children\":[\"本质:\",[\"$\",\"code\",null,{\"children\":\"就是上级作用域内变量的生命周期，因为被下级作用域内引用，而没有被释放。\"}]]}],\"\\n\",[\"$\",\"p\",null,{\"children\":[\"先要明白作用域和上下文: \",[\"$\",\"code\",null,{\"children\":\"三种上下文之1:函数执行上下文\"}],\"：存在无数个，只有在函数被调用的时候才会被创建，每次调用函数都会创建一个新的执行上下文。函数作用域是在函数声明的时候就已经确定了，而函数执行上下文是在函数调用时创建的。\"]}],\"\\n\",[\"$\",\"p\",null,{\"children\":\"函数的特殊属性使其能够记住其创建时所在执行环境的的词法环境，当离开该执行环境并执行时仍然能够访问其词法环境的这一过程就叫做“闭包”,父级函数的执行上下文在运行时赋值，所以闭包return的值就是执行上下文赋值的值，也就是父级函数执行之后不会销毁引用的作用域。\"}],\"\\n\",[\"$\",\"p\",null,{\"children\":[\"参考:\",[\"$\",\"a\",null,{\"href\":\"./step3-%E6%89%A7%E8%A1%8C%E4%B8%8A%E4%B8%8B%E6%96%87-%E5%87%BD%E6%95%B0%E8%B0%83%E7%94%A8%E6%A0%88-this\",\"children\":\"step3-执行上下文-函数调用栈-this\"}]]}],\"\\n\",[\"$\",\"p\",null,{\"children\":[\"作用域参考：\",[\"$\",\"a\",null,{\"href\":\"./step2-%E4%BD%9C%E7%94%A8%E5%9F%9F-%E5%9D%97%E7%BA%A7%E4%BD%9C%E7%94%A8%E5%9F%9F%E5%8E%9F%E7%90%86\",\"children\":\"step2-作用域-块级作用域原理-作用域和闭包\"}]]}],\"\\n\",[\"$\",\"pre\",null,{\"children\":[\"$\",\"code\",null,{\"children\":\"作用域大部分时候是静态作用域,又叫词法作用域,这是因为作用域的嵌套关系可以在语法分析时确定\\n\"}]}],\"\\n\",[\"$\",\"p\",null,{\"children\":\"在函数外部自然无法读取函数内的局部变量;\"}],\"\\n\",[\"$\",\"p\",null,{\"children\":\"在一个函数内部定义函数--\u003e闭包就产生了；\"}],\"\\n\",[\"$\",\"h3\",null,{\"children\":\"闭包和作用域\"}],\"\\n\",[\"$\",\"pre\",null,{\"children\":[\"$\",\"code\",null,{\"className\":\"language-js\",\"children\":\"function func() {\\n  var a = 1;\\n  (function () {\\n    console.log(a)\\n  }());\\n}\\nfunc(); // 1\\n\"}]}],\"\\n\",[\"$\",\"h3\",null,{\"children\":\"如何从外部读取局部变量？\"}],\"\\n\",[\"$\",\"p\",null,{\"children\":\"无法读取函数内变量：\"}],\"\\n\",[\"$\",\"pre\",null,{\"children\":[\"$\",\"code\",null,{\"className\":\"language-js\",\"children\":\"function f1(){\\n  var n = 999;\\n}\\n\\nconsole.log(n);\\n/*\\nUncaught ReferenceError: n is not defined\\n*/\\n\"}]}],\"\\n\",[\"$\",\"p\",null,{\"children\":\"使用闭包： 就是在一个函数内部创建另一个函数。f2 可以读取 f1 中的局部变量，那么只要把 f2 作为返回值，我们不就可以在 f1 外部读取它的内部变量\"}],\"\\n\",[\"$\",\"pre\",null,{\"children\":[\"$\",\"code\",null,{\"className\":\"language-js\",\"children\":\"function f1() {\\n  var n = 999;\\n  function f2() {\\n    console.log(n);\\n    return n\\n  }\\n\\n  return f2;\\n}\\n\\nvar result = f1();\\ndebugger\\nconsole.log('res:',result()); // 999\\n\"}]}],\"\\n\",[\"$\",\"h2\",null,{\"children\":\"闭包和预解析\"}],\"\\n\",[\"$\",\"p\",null,{\"children\":\"闭包（closure）是一个函数以及其捆绑的周边环境状态（lexical environment，词法环境）的引用的组合。\"}],\"\\n\",[\"$\",\"p\",null,{\"children\":\"https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Closures\"}],\"\\n\",[\"$\",\"pre\",null,{\"children\":[\"$\",\"code\",null,{\"className\":\"language-js\",\"children\":\"function foo() {\\n    var d = 20\\n    return function inner(a, b) {\\n        const c = a + b + d\\n        return c\\n    }\\n}\\nconst f = foo()\\n\"}]}],\"\\n\",[\"$\",\"p\",null,{\"children\":\"上面这段代码的执行过程：\"}],\"\\n\",[\"$\",\"ol\",null,{\"children\":[\"\\n\",[\"$\",\"li\",null,{\"children\":\"当调用 foo 函数时，foo 函数会将它的内部函数 inner 返回给全局变量 f；\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"然后 foo 函数执行结束，执行上下文被 V8 销毁；\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"虽然 foo 函数的执行上下文被销毁了，但是依然存活的 inner 函数引用了 foo 函数作用域中的变量 d。\"}],\"\\n\"]}],\"\\n\",[\"$\",\"p\",null,{\"children\":\"foo 函数的执行上下文虽然被销毁了，但是 inner 函数引用的 foo 函数中的变量却不能被销毁，那么 V8 就需要为这种情况做特殊处理，需要保证即便 foo 函数执行结束，但是 foo 函数中的 d 变量依然保持在内存中，不能随着 foo 函数的执行上下文被销毁掉。\"}],\"\\n\",[\"$\",\"p\",null,{\"children\":\"那么怎么处理呢？\"}],\"\\n\",[\"$\",\"p\",null,{\"children\":\"在执行 foo 函数的阶段，虽然采取了惰性解析，不会解析和执行 foo 函数中的 inner 函数，但是 V8 还是需要预解析器判断 inner 函数是否引用了 foo 函数中的变量。\"}],\"\\n\",[\"$\",\"p\",null,{\"children\":\"预解释不生成 ast，不生成作用域，只是快速查看内部函数是否引用了外部的变量，快速查看是否存在语法错误，这种执行速度非常快。\"}],\"\\n\",[\"$\",\"h3\",null,{\"children\":\"预解析器如何解决闭包所带来的问题？\"}],\"\\n\",[\"$\",\"p\",null,{\"children\":\"当解析顶层代码的时候，遇到了一个函数，那么预解析器并不会直接跳过该函数，而是对该函数做一次快速的预解析，检查函数内部是否引用了外部变量，如果引用了外部的变量，预解析器会将栈中的变量复制到堆中，并追加一个闭包引用，这样当上层函数执行结束之后，只要闭包突然引用了该变量，那么V8也不会销毁改变量,在下次执行到该函数的时候，直接使用堆中的引用，这样就解决了闭包所带来的问题。\"}],\"\\n\",[\"$\",\"h2\",null,{\"children\":\"调用栈的角度，理解闭包\"}],\"\\n\",[\"$\",\"p\",null,{\"children\":\"继续分析没被销毁原因：\\n在执行上下文的创建阶段，跟着被创建的还有作用域链。闭包正是一层层作用域链的关系，实现了对父作用域执行上下文信息的保留。\"}],\"\\n\",[\"$\",\"p\",null,{\"children\":[\"$\",\"code\",null,{\"children\":\"作用域在嵌套的情况下，外部作用域是不能访问内部作用域的变量的。一般来说，函数出栈后，我们都没有办法再访问到函数内部的变量了。但闭包可不是这样:\"}]}],\"\\n\",[\"$\",\"pre\",null,{\"children\":[\"$\",\"code\",null,{\"className\":\"language-js\",\"children\":\"function aFn(a) {\\n    var a1 = 1\\n    var a2 = 2\\n    return function aInner(b) {\\n        console.log('a1', a1)\\n        return a + b;\\n    };\\n}\\n\\ndebugger\\nvar add = aFn(10);\\n\\nadd(20)\\n\"}]}],\"\\n\",[\"$\",\"p\",null,{\"children\":[\"当执行到\",[\"$\",\"code\",null,{\"children\":\"add(20)\"}],\"闭包让函数的执行上下文存在aFn的执行上下文a,a1，aFn的a,a1没被销毁,但是a2已经被销毁\\n\",[\"$\",\"img\",null,{\"src\":\"../assets/img-engine/%E4%BD%9C%E7%94%A8%E5%9F%9F%E5%92%8C%E9%97%AD%E5%8C%85%E4%BE%8B%E5%AD%90-%E6%89%A7%E8%A1%8CaInner.png\",\"alt\":\"\"}]]}],\"\\n\",[\"$\",\"p\",null,{\"children\":[\"当执行到add,看截图add:ƒ aInner(b),并不是指向初始化的：add:undefined\\n\",[\"$\",\"img\",null,{\"src\":\"../assets/img-engine/%E4%BD%9C%E7%94%A8%E5%9F%9F%E5%92%8C%E9%97%AD%E5%8C%85%E4%BE%8B%E5%AD%90-add.png\",\"alt\":\"\"}]]}],\"\\n\",[\"$\",\"p\",null,{\"children\":\"当add执行的时候，调用的是aInner(),可见Closure-闭合/闭包：\"}],\"\\n\",[\"$\",\"pre\",null,{\"children\":[\"$\",\"code\",null,{\"className\":\"language-js\",\"children\":\"{\\n    a: 10\\n    a1: 1\\n}\\n\"}]}],\"\\n\",[\"$\",\"h3\",null,{\"children\":\"使用闭包的注意点\"}],\"\\n\",[\"$\",\"ul\",null,{\"children\":[\"\\n\",[\"$\",\"li\",null,{\"children\":[\"\\n\",[\"$\",\"p\",null,{\"children\":\"由于闭包会使得函数中的变量都被保存在内存中，内存消耗很大，所以不能滥用闭包，否则会造成网页的性能问题，在 IE 中可能导致内存泄露。解决方法是，在退出函数之前，将不使用的局部变量全部删除。\"}],\"\\n\"]}],\"\\n\",[\"$\",\"li\",null,{\"children\":[\"\\n\",[\"$\",\"p\",null,{\"children\":\"闭包会在父函数外部，改变父函数内部变量的值。所以，如果你把父函数当作对象（object）使用，把闭包当作它的公用方法（Public Method），把内部变量当作它的私有属性（private value），这时一定要小心，不要随便改变父函数内部变量的值。\"}],\"\\n\"]}],\"\\n\"]}],\"\\n\",[\"$\",\"h2\",null,{\"children\":\"题1-但实际是无论点击哪个目标都会弹出数字5\"}],\"\\n\",[\"$\",\"p\",null,{\"children\":\"想每次点击对应目标时弹出对应的数字下标 0~4\"}],\"\\n\",[\"$\",\"pre\",null,{\"children\":[\"$\",\"code\",null,{\"className\":\"language-js\",\"children\":\"function onMyLoad() {\\n  var arr = document.getElementsByTagName(\\\"p\\\");\\n  for (var i = 0; i \u0026lt; arr.length; i++) {\\n    arr[i].onclick = function () {\\n      alert(i);\\n    }\\n  }\\n}\\n\"}]}],\"\\n\",[\"$\",\"p\",null,{\"children\":\"问题所在：arr 中的每一项的 onclick 均为一个函数实例(Function 对象)，这个函数实例也产生了一个闭包域，这个闭包域引用了外部闭包域的变量，其 function scope 的 closure 对象有个名为 i 的引用，外部闭包域的私有变量内容发生变化，内部闭包域得到的值自然会发生改变。\"}],\"\\n\",[\"$\",\"p\",null,{\"children\":\"解决办法一\\n解决思路：增加若干个对应的闭包域空间(这里采用的是匿名函数)，专门用来存储原先需要引用的内容(下标)，不过只限于基本类型(基本类型值传递，对象类型引用传递)。\"}],\"\\n\",[\"$\",\"pre\",null,{\"children\":[\"$\",\"code\",null,{\"className\":\"language-js\",\"children\":\"//声明一个匿名函数，若传进来的是基本类型则为值传递，故不会对实参产生影响,\\n//该函数对象有一个本地私有变量 arg(形参) ，该函数的 function scope 的 closure 对象属性有两个引用，一个是 arr，一个是 i\\n//尽管引用 i 的值随外部改变 ，但本地私有变量(形参) arg 不会受影响，其值在一开始被调用的时候就决定了\\nfor (var i = 0; i \u0026lt; arr.length; i++) {\\n  (function (arg) {\\n    arr[i].onclick = function () {\\n      // onclick 函数实例的 function scope 的 closure 对象属性有一个引用 arg,\\n      alert(arg);\\n      //只要 外部空间的 arg 不变，这里的引用值当然不会改变\\n    }\\n  })(i); //立刻执行该匿名函数，传递下标 i (实参)\\n}\\n\"}]}],\"\\n\",[\"$\",\"p\",null,{\"children\":\"解决办法二\\n解决思路：将事件绑定在新增的匿名函数返回的函数上，此时绑定的函数中的 function scope 中的 closure 对象的 引用 arg 是指向将其返回的匿名函数的私有变量 arg\"}],\"\\n\",[\"$\",\"pre\",null,{\"children\":[\"$\",\"code\",null,{\"className\":\"language-js\",\"children\":\"for (var i = 0; i \u0026lt; arr.length; i++) {\\n  arr[i].onclick = (function (arg) {\\n    return function () {\\n      alert(arg);\\n    }\\n  })(i);\\n}\\n\"}]}],\"\\n\",[\"$\",\"p\",null,{\"children\":\"使用 ES6 新语法 let 关键字\"}],\"\\n\",[\"$\",\"pre\",null,{\"children\":[\"$\",\"code\",null,{\"className\":\"language-js\",\"children\":\"for (var i = 0; i \u0026lt; arr.length; i++) {\\n  let j = i; // 创建一个块级变量\\n  arr[i].onclick = function () {\\n    alert(j);\\n  }\\n}\\n\"}]}],\"\\n\",[\"$\",\"h2\",null,{\"children\":\"题2-经典问题setTimeout\"}],\"\\n\",[\"$\",\"p\",null,{\"children\":\"原因是：setTimeout是异步操作不会马上执行，event loop会等主线机制完成后执行，\\n需要等待到函数调用栈清空之后才开始执行。即所有可执行代码执行完毕之后，才会开始执行由setTimeout定义的操作。\\n而这些操作进入队列的顺序，则由设定的延迟时间来决定。\\n因此在上面这个例子中，即使我们将延迟时间设置为0，它定义的操作仍然需要等待所有代码执行完毕之后才开始执行。这里的延迟时间，并非相对于setTimeout执行这一刻，而是相对于其他代码执行完毕这一刻。\"}],\"\\n\",[\"$\",\"p\",null,{\"children\":\"所以上面的例子执行结果就非常容易理解了。而for是同步执行，因此执行setTimeout的时候for循环已经执行完了，结果打印的值为3个3\"}],\"\\n\",[\"$\",\"pre\",null,{\"children\":[\"$\",\"code\",null,{\"className\":\"language-js\",\"children\":\"function testBi() {\\n    const testArr = [1, 2, 3]\\n    for (var i = 0; i \u003c testArr.length; i++) {\\n        setTimeout(function () {\\n            console.log('闭包题目：', i)\\n        }, 0)\\n    }\\n}\\ntestBi() // 输出 333\\n\"}]}],\"\\n\",[\"$\",\"h3\",null,{\"children\":\"方法1可使用闭包的方法解决\"}],\"\\n\",[\"$\",\"p\",null,{\"children\":\"解决思路：增加若干个对应的闭包域空间(这里采用的是匿名函数)，\\n专门用来存储原先需要引用的内容(下标)，不过只限于基本类型(基本类型值传递，对象类型引用传递)。\"}],\"\\n\",[\"$\",\"p\",null,{\"children\":\"声明一个匿名函数，若传进来的是基本类型则为值传递，故不会对实参产生影响,\\n该函数对象有一个本地私有变量 arg(形参) ，该函数的 function scope 的 closure 对象属性有两个引用，一个是 arr，一个是 i\\n尽管引用 i 的值随外部改变 ，但本地私有变量(形参) arg 不会受影响，其值在一开始被调用的时候就决定了\"}],\"\\n\",[\"$\",\"p\",null,{\"children\":\"// 而我们想要让输出结果依次执行，我们就必须借助闭包的特性，每次循环时，将i值保存在一个闭包中，当setTimeout中定义的操作执行时，则访问对应闭包保存的i值即可。\"}],\"\\n\",[\"$\",\"pre\",null,{\"children\":[\"$\",\"code\",null,{\"className\":\"language-js\",\"children\":\"function testBi2() {\\n    const testArr = [1, 2, 3]\\n    for (var i = 0; i \u003c testArr.length; i++) {\\n        (function (arg) {       //外部函数\\n            setTimeout(function () {     //内部函数\\n                // 只要 外部空间的 arg 不变，这里的引用值当然不会改变\\n                console.log('闭包题目@：', arg)\\n            })\\n        })(i)\\n    }\\n}\\ntestBi2() // 输出 1,2,3\\n\"}]}],\"\\n\",[\"$\",\"h3\",null,{\"children\":\"2.使用let解决\"}],\"\\n\",[\"$\",\"p\",null,{\"children\":[\"遍历i是通过 let 关键字声明的：通过 let 和 const 关键字声明的变量是拥有块级作用域（指的是任何在 \",\" 中的内容）。\"]}],\"\\n\",[\"$\",\"p\",null,{\"children\":\"在每次的遍历过程中，i都有一个新值，并且每个值都在循环内的作用域中，使其结果依次输出0,1,2\"}],\"\\n\",[\"$\",\"pre\",null,{\"children\":[\"$\",\"code\",null,{\"className\":\"language-js\",\"children\":\"for (var i = 0; i\u003c 10; i++){\\n\\tsetTimeout(() =\u003e {\\n\\t\\tconsole.log(i)kk;\\n    }, 1000)\\n}\\n\\n// 解法一：\\nfor (let i = 0; i\u003c 10; i++){\\n  setTimeout(() =\u003e {\\n    console.log(i);\\n  }, 1000)\\n}\\n\\n// 解法二：\\nfor (var i = 0; i\u003c 10; i++){\\n  ((i) =\u003e {\\n    setTimeout(() =\u003e {\\n      console.log(i);\\n    }, 1000)\\n })(i)\\n}\\n\"}]}],\"\\n\",[\"$\",\"h2\",null,{\"children\":\"闭包使用场景\"}],\"\\n\",[\"$\",\"h3\",null,{\"children\":\"可以读取函数内部的变量,让这些变量的值始终保持在内存中\"}],\"\\n\",[\"$\",\"pre\",null,{\"children\":[\"$\",\"code\",null,{\"className\":\"language-js\",\"children\":\"function f1() {\\n  var n = 999;\\n  nAdd = function () { n += 1 }\\n  function f2() {\\n    alert(n);\\n  }\\n  return f2;\\n}\\n\\nvar result = f1();\\n\\nresult(); // 999\\nnAdd();\\nresult(); // 100\\n\"}]}],\"\\n\",[\"$\",\"p\",null,{\"children\":\"在这段代码中，result 实际上就是闭包 f2 函数。它一共运行了两次，第一次的值是 999，第二次的值是 1000。这证明了，函数 f1 中的局部变量 n 一直保存在内存中，并没有在 f1 调用后被自动清除。\"}],\"\\n\",[\"$\",\"p\",null,{\"children\":\"为什么会这样呢 ？\"}],\"\\n\",[\"$\",\"p\",null,{\"children\":\"原因就在于 f1 是 f2 的父函数，而 f2 被赋给了一个全局变量，这导致 f2 始终在内存中，而 f2 的存在依赖于 f1，因此 f1 也始终在内存中，不会在调用结束后，被垃圾回收机制（garbage collection）回收。\"}],\"\\n\",[\"$\",\"p\",null,{\"children\":\"这段代码中另一个值得注意的地方，就是\"}],\"\\n\",[\"$\",\"ul\",null,{\"children\":[\"\\n\",[\"$\",\"li\",null,{\"children\":[\"\\n\",[\"$\",\"p\",null,{\"children\":[[\"$\",\"code\",null,{\"children\":\"nAdd=function(){ n+=1 }\"}],\" 这一行，首先在 nAdd 前面没有使用 var 关键字，因此 nAdd 是一个全局变量，而不是局部变量。\"]}],\"\\n\"]}],\"\\n\",[\"$\",\"li\",null,{\"children\":[\"\\n\",[\"$\",\"p\",null,{\"children\":\"其次，nAdd 的值是一个匿名函数（anonymous function），而这个匿名函数本身也是一个闭包，所以 nAdd 相当于是一个 setter，可以在函数外部对函数内部的局部变量进行操作。\"}],\"\\n\"]}],\"\\n\"]}],\"\\n\",[\"$\",\"h3\",null,{\"children\":\"模仿块级作用域\"}],\"\\n\",[\"$\",\"p\",null,{\"children\":\"因此可以利用闭包的特性来模仿块级作用域。\"}],\"\\n\",[\"$\",\"p\",null,{\"children\":\"这个例子闭包就是那个匿名函数，这个闭包可以当函数testFn内部的活动变量，又能保证自己内部的变量在自执行后直接销毁。\\n这种写法经常用在全局环境中，可以避免添加太多全局变量和全局函数，特别是多人合作开发的时候可以减少因此产生的命名冲突等，避免污染全局环境。\"}],\"\\n\",[\"$\",\"pre\",null,{\"children\":[\"$\",\"code\",null,{\"className\":\"language-js\",\"children\":\"function testFn(num) {\\n    (function () {\\n        for (var i = 0; i \u003c num.length; i++) {\\n            num++\\n        }\\n    }).call() //声明一个函数立即调用以后，浏览器刷新页面会报错，可以用一个小括号把整段函数包起来。\\n    console.log(i)//undefined\\n}\\n\"}]}],\"\\n\",[\"$\",\"h3\",null,{\"children\":\"闭包可以让一个变量长期驻扎在内存中，避免全局变量的污染\"}],\"\\n\",[\"$\",\"pre\",null,{\"children\":[\"$\",\"code\",null,{\"className\":\"language-js\",\"children\":\"var res = (function () {\\n    var count = 29;\\n    return function add() {\\n        // return count++;\\n        console.log(count);\\n        count++;\\n    }\\n})();\\nconsole.log(res());\\nconsole.log(res());\\n\"}]}],\"\\n\",[\"$\",\"h3\",null,{\"children\":\"封装私有变量\"}],\"\\n\",[\"$\",\"p\",null,{\"children\":\"我们可以把函数当作一个范围，函数内部的变量就是私有变量，在外部无法引用，但是我们可以通过闭包的特点来访问私有变量。\"}],\"\\n\",[\"$\",\"pre\",null,{\"children\":[\"$\",\"code\",null,{\"className\":\"language-js\",\"children\":\"var person = function () {\\n    //变量作用域为函数内部，外部无法访问\\n    var name = \\\"default\\\";\\n    return {\\n        getName: function () {\\n            return name;\\n        },\\n        setName: function (newName) {\\n            name = newName;\\n        }\\n    }\\n}();\\n\\nconsole.log('封装私有变量:', person.name);//直接访问，结果为undefined\\nconsole.log('封装私有变量:', person.getName()); // default\\nperson.setName(\\\"abruzzi\\\");\\nconsole.log('封装私有变量:', person.getName()); // abruzzi\\n\"}]}],\"\\n\",[\"$\",\"h2\",null,{\"children\":\"内存生命周期和泄漏场景\"}],\"\\n\",[\"$\",\"p\",null,{\"children\":\"最基础的造成内存泄漏的几个点，应该还有更深层次一点的。而内存泄漏最核心的还是因为垃圾机制，全局变量或者是被全局变量引用，垃圾机制就无法回收，要是一直需要使用的还好，要是一些用完一次就不再使用的没有释放，那么积累的多了就容易造成内存溢出。\"}],\"\\n\",[\"$\",\"p\",null,{\"children\":\"JavaScript 具有自动垃圾收集机制（GC：Garbage Collecation），也就是说，执行环境会负责管理代码执行过程中使用的内存。\"}],\"\\n\",[\"$\",\"h2\",null,{\"children\":\"JavaScript内存的生命周期：\"}],\"\\n\",[\"$\",\"ol\",null,{\"children\":[\"\\n\",[\"$\",\"li\",null,{\"children\":\"内存分配：分配你所需要的暂时使用内存大小，当申明变量、函数、对象的时候，系统会自动为他们分配内存\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"内存使用：即读写内存，在每次创建字变量、函数、对象的时候，程序会分配新内存来存储实体。\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"内存回收：对于不需要使用的内存将其释放。\"}],\"\\n\"]}],\"\\n\",[\"$\",\"p\",null,{\"children\":\"内存也是有生命周期的，不管什么程序语言，一般可以按顺序分为三个周期：\"}],\"\\n\",[\"$\",\"ul\",null,{\"children\":[\"\\n\",[\"$\",\"li\",null,{\"children\":\"分配期：分配所需要的内存\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"使用期：使用分配到的内存（读、写）\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"释放期：不需要时将其释放和归还\"}],\"\\n\"]}],\"\\n\",[\"$\",\"p\",null,{\"children\":\"为了便于理解，下面用一个简单的例子来解释JavaScript内存的生命周期。\"}],\"\\n\",[\"$\",\"pre\",null,{\"children\":[\"$\",\"code\",null,{\"className\":\"language-js\",\"children\":\"var a = 50;  // 在内存中给数值变量分配空间\\nalert(a + 100);  // 使用内存\\na = null; // 使用完毕之后，释放内存空间\\n\"}]}],\"\\n\",[\"$\",\"h2\",null,{\"children\":\"实现垃圾回收的两种常见算法:引用计数和标记清除\"}],\"\\n\",[\"$\",\"ol\",null,{\"children\":[\"\\n\",[\"$\",\"li\",null,{\"children\":\"标记清除\"}],\"\\n\"]}],\"\\n\",[\"$\",\"p\",null,{\"children\":\"标记清除法是现代浏览器常用的一种垃圾收集方式，当变量进入环境（即在一个函数中声明一个变量）时，就将此变量标记为“进入环境”，进入环境的变量是不能被释放，因为只有执行流进入相应的环境，就可能会引用它们。\"}],\"\\n\",[\"$\",\"p\",null,{\"children\":\"而当变量离开环境时，就标记为“离开环境”。\"}],\"\\n\",[\"$\",\"p\",null,{\"children\":\"垃圾收集器在运行时会给储存在内存中的所有变量加上标记，然后会去掉环境中的变量以及被环境中的变量引用的变量的标记，当执行完毕那些没有存在引用无法访问的变量就被加上标记，最后垃圾收集器完成清除工作，释放掉那些打上标记的变量所占的内存。\"}],\"\\n\",[\"$\",\"p\",null,{\"children\":\"标记清除之所以不存在循环引用的问题，是因为当函数执行完毕之后，对象A和B就已经离开了所在的作用域，此时两个变量被标记为“离开环境”，等待被垃圾收集器回收，最后释放其内存。\"}],\"\\n\",[\"$\",\"ol\",null,{\"start\":\"2\",\"children\":[\"\\n\",[\"$\",\"li\",null,{\"children\":\"引用计数\\n引用计数（reference counting）：当声明一个变量并将一个引用类型复制给该变量时，则这个值引用就加1，相反，如果包含这个值的变量又取得另外一个值，那么这个值的引用就减1，当引用次数变为0，则说明这个值不再用到了，这时就可以将这块内存释放。\"}],\"\\n\"]}],\"\\n\",[\"$\",\"h2\",null,{\"children\":\"JavaScript中涉及内存泄漏的几种场景：\"}],\"\\n\",[\"$\",\"h3\",null,{\"children\":\"场景1. 全局变量引起的内存泄漏：\"}],\"\\n\",[\"$\",\"p\",null,{\"children\":\"根据JavaScript的垃圾回收机制我们知道，全局变量是不会被回收的，所以一些意外的、不需要的全局变量多了，没有释放，就造成了内存泄漏。\\n例：不断地创建全局变量，不管有没有用到它们，它们都将滞留在程序的整个执行过程中。如果这些变量是深层嵌套对象，将会浪费大量内存。\"}],\"\\n\",[\"$\",\"h3\",null,{\"children\":\"场景2. 闭包：\"}],\"\\n\",[\"$\",\"p\",null,{\"children\":\"闭包其实也是跟全局变量挂钩了，但是闭包只是因为被全局变量引用了，内部的变量因为被闭包引用得不到释放，也会造成内存泄漏。\\n因为Javascript范围的限制，许多实现依赖Javascript闭包。闭包可以导致内存泄漏是因为内部方法保持一个对外部方法变量的引用，所以尽管方法返回了内部方法还可以继续访问在外部方法中定义的私有变量。最好的做法是在页面重载前断开所有的事件处理器。\"}],\"\\n\",[\"$\",\"p\",null,{\"children\":\"举例说明：\\n运行下面的代码，会发现已经造成了大量的内存泄露，每秒泄露1M的内存，显然光靠垃圾回收器是无法帮助你的了。由上面的代码来看，似乎是longstr在每次replaceThing调用的时候都没有得到回收。每一个theThing结构都含有一个longstr结构列表。每一秒当我们调用 replaceThing, 它就会把当前的指向传递给priorThing。但是到这里我们也会看到并没有什么问题，因为priorThing每回也是先解开上次函数的指向才会接受新的赋值。并且所有的这一切都是发生在replaceThing函数体当中，按常理来说当函数体结束之后，函数中的本地变量也将会被垃圾回收器回收，也就不会出现内存泄露的问题了，但是为什么会出现上面的错误呢？\\n这是因为longstr的定义是在一个闭包中进行的，而它又被其他的闭包所引用，js规定，在闭包中引入闭包外部的变量时，当闭包结束时此对象无法被垃圾回收。\"}],\"\\n\",[\"$\",\"pre\",null,{\"children\":[\"$\",\"code\",null,{\"className\":\"language-js\",\"children\":\"var theThing = null; \\nvar replaceThing = function () { \\n    var priorThing = theThing; \\n    var unused = function () { \\n        if (priorThing) {       \\n            console.log(\\\"hi\\\");     \\n        }   \\n    }; \\n    theThing = {     \\n        longStr: new Array(100).join('*'),\\n        someMethod: function () {       \\n            console.log(someMessage);  \\n        }   \\n    }; \\n};\\nsetInterval(replaceThing, 1000);\\n\"}]}],\"\\n\",[\"$\",\"h3\",null,{\"children\":\"场景3.计时器、回调、监听等事件没有移除：\"}],\"\\n\",[\"$\",\"pre\",null,{\"children\":[\"$\",\"code\",null,{\"children\":\"计时器、回调、事件监听等没有清除是一直存在的，一直存在没有被释放就会造成内存泄漏。\\n为了增强网站的交互性或者是制作一些浮华的动画，你可能会创建大量的事件监听器。而用户在你的单页面应用中移向其他页面时，你又忘记移除这些监听器，那么也可能会导致内存泄漏。当用户在这些页面来回移动的时候，这些监听器会不断增加。\\n\"}]}],\"\\n\",[\"$\",\"h3\",null,{\"children\":\"场景4.给DOM添加属性或方法：\"}],\"\\n\",[\"$\",\"p\",null,{\"children\":\"给DOM添加点击方法、添加属性等，也会造成变量引用得不到释放，造成内存泄漏。\\n例移除 DOM 元素：这个问题很常见，类似于全局变量导致的内存泄漏。DOM 元素存在于对象图内存和 DOM 树中。用例子来解释可能会更好：\"}],\"\\n\",[\"$\",\"pre\",null,{\"children\":[\"$\",\"code\",null,{\"className\":\"language-js\",\"children\":\"var terminator = document.getElementById('terminate');\\nvar badElem = document.getElementById('toDelete');\\nterminator.addEventListener('click', function()  {\\n  badElem.remove();\\n});\\n\"}]}],\"\\n\",[\"$\",\"p\",null,{\"children\":\"在你通过 id = ‘terminate’ 点击了按钮之后，toDelete 会从 DOM 中移除。不过，由于它仍然被监听器引用，为这个对象分配的内存并不会被释放。\"}],\"\\n\",[\"$\",\"pre\",null,{\"children\":[\"$\",\"code\",null,{\"className\":\"language-js\",\"children\":\"var terminator = document.getElementById('terminate');\\nterminator.addEventListener('click', function()  {\\n  var badElem = document.getElementById('toDelete');\\n  badElem.remove();\\n});\\n\"}]}],\"\\n\",[\"$\",\"p\",null,{\"children\":\"badElem 是局部变量，在移除操作完成之后，内存将会被垃圾回收器回收。\"}],\"\\n\",[\"$\",\"h3\",null,{\"children\":\"场景5.循环引用\"}],\"\\n\",[\"$\",\"pre\",null,{\"children\":[\"$\",\"code\",null,{\"children\":\"简单的例子：一个 DOM 对象被一个 Javascript 对象引用，与此同时又引用同一个或其它的 Javascript 对象，这个 DOM 对象可能会引发内存泄露。这个 DOM 对象的引用将不会在脚本停止的时候被垃圾回收器回收。要想破坏循环引用，引用 DOM 元素的对象或 DOM 对象的引用需要被赋值为null\\n\"}]}]]],null],null]},[\"$\",\"$L4\",null,{\"parallelRouterKey\":\"children\",\"segmentPath\":[\"children\",\"parsing-inte-co\",\"children\",\"closureMemory\",\"children\"],\"error\":\"$undefined\",\"errorStyles\":\"$undefined\",\"errorScripts\":\"$undefined\",\"template\":[\"$\",\"$L5\",null,{}],\"templateStyles\":\"$undefined\",\"templateScripts\":\"$undefined\",\"notFound\":\"$undefined\",\"notFoundStyles\":\"$undefined\",\"styles\":null}],null]},[\"$\",\"$L4\",null,{\"parallelRouterKey\":\"children\",\"segmentPath\":[\"children\",\"parsing-inte-co\",\"children\"],\"error\":\"$undefined\",\"errorStyles\":\"$undefined\",\"errorScripts\":\"$undefined\",\"template\":[\"$\",\"$L5\",null,{}],\"templateStyles\":\"$undefined\",\"templateScripts\":\"$undefined\",\"notFound\":\"$undefined\",\"notFoundStyles\":\"$undefined\",\"styles\":null}],null]},[[\"$\",\"html\",null,{\"lang\":\"en\",\"children\":[[\"$\",\"head\",null,{\"children\":[[\"$\",\"meta\",null,{\"name\":\"viewport\",\"content\":\"width=device-width, initial-scale=1\"}],[\"$\",\"link\",null,{\"data-rh\":\"true\",\"rel\":\"icon\",\"href\":\"/logo.svg\"}]]}],[\"$\",\"body\",null,{\"children\":[\"$\",\"div\",null,{\"className\":\"wrapper-box\",\"children\":[[\"$\",\"$L6\",null,{}],[\"$\",\"div\",null,{\"className\":\"main-container\",\"children\":[[\"$\",\"$L7\",null,{\"isMobile\":false}],[\"$\",\"main\",null,{\"className\":\"md-container\",\"children\":[[\"$\",\"div\",null,{\"className\":\"empty-div\"}],[\"$\",\"article\",null,{\"className\":\"article\",\"children\":[\"$\",\"$L4\",null,{\"parallelRouterKey\":\"children\",\"segmentPath\":[\"children\"],\"error\":\"$undefined\",\"errorStyles\":\"$undefined\",\"errorScripts\":\"$undefined\",\"template\":[\"$\",\"$L5\",null,{}],\"templateStyles\":\"$undefined\",\"templateScripts\":\"$undefined\",\"notFound\":[[\"$\",\"title\",null,{\"children\":\"404: This page could not be found.\"}],[\"$\",\"div\",null,{\"style\":{\"fontFamily\":\"system-ui,\\\"Segoe UI\\\",Roboto,Helvetica,Arial,sans-serif,\\\"Apple Color Emoji\\\",\\\"Segoe UI Emoji\\\"\",\"height\":\"100vh\",\"textAlign\":\"center\",\"display\":\"flex\",\"flexDirection\":\"column\",\"alignItems\":\"center\",\"justifyContent\":\"center\"},\"children\":[\"$\",\"div\",null,{\"children\":[[\"$\",\"style\",null,{\"dangerouslySetInnerHTML\":{\"__html\":\"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}\"}}],[\"$\",\"h1\",null,{\"className\":\"next-error-h1\",\"style\":{\"display\":\"inline-block\",\"margin\":\"0 20px 0 0\",\"padding\":\"0 23px 0 0\",\"fontSize\":24,\"fontWeight\":500,\"verticalAlign\":\"top\",\"lineHeight\":\"49px\"},\"children\":\"404\"}],[\"$\",\"div\",null,{\"style\":{\"display\":\"inline-block\"},\"children\":[\"$\",\"h2\",null,{\"style\":{\"fontSize\":14,\"fontWeight\":400,\"lineHeight\":\"49px\",\"margin\":0},\"children\":\"This page could not be found.\"}]}]]}]}]],\"notFoundStyles\":[],\"styles\":null}]}]]}]]}]]}]}]]}],null],null],\"couldBeIntercepted\":false,\"initialHead\":[null,\"$L8\"],\"globalErrorComponent\":\"$9\",\"missingSlots\":\"$Wa\"}]]\n"])</script><script>self.__next_f.push([1,"8:[[\"$\",\"meta\",\"0\",{\"name\":\"viewport\",\"content\":\"width=device-width, initial-scale=1\"}],[\"$\",\"meta\",\"1\",{\"charSet\":\"utf-8\"}],[\"$\",\"title\",\"2\",{\"children\":\"Block-chain\"}],[\"$\",\"meta\",\"3\",{\"name\":\"description\",\"content\":\"block-chain\"}]]\n3:null\n"])</script></body></html>

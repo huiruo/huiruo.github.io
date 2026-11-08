@@ -1,0 +1,87 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="preload" as="image" href="/logo.svg"/><link rel="preload" as="image" href="/github.svg"/><link rel="stylesheet" href="/_next/static/css/08ccca47812646bd.css" data-precedence="next"/><link rel="preload" as="script" fetchPriority="low" href="/_next/static/chunks/webpack-6a2c37dabd206ff9.js"/><script src="/_next/static/chunks/f14ca715-4f4dbb6482451e0a.js" async=""></script><script src="/_next/static/chunks/5465-2089315387f88b08.js" async=""></script><script src="/_next/static/chunks/main-app-29466430c79adc42.js" async=""></script><script src="/_next/static/chunks/7068-a4cd9a6e0af45b4d.js" async=""></script><script src="/_next/static/chunks/7221-931ccc86aa295cd1.js" async=""></script><script src="/_next/static/chunks/app/layout-09e38df7cdd64f73.js" async=""></script><link data-rh="true" rel="icon" href="/logo.svg"/><title>Block-chain</title><meta name="description" content="block-chain"/><script src="/_next/static/chunks/polyfills-78c92fac7aa8fdd8.js" noModule=""></script></head><body><div class="wrapper-box"><nav class="nav"><style data-emotion="css 159i7d">.css-159i7d{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:justify;-webkit-justify-content:space-between;justify-content:space-between;height:100%;}</style><div class="MuiBox-root css-159i7d"><div class="flex"><style data-emotion="css 1lkqgm2">.css-1lkqgm2{width:36px;margin-left:10px;border-radius:20%;}</style><img class="MuiBox-root css-1lkqgm2" alt="icon" src="/logo.svg"/></div><style data-emotion="css 1wv2h5q">.css-1wv2h5q{width:30px;margin-right:10px;border-radius:50%;}</style><img class="MuiBox-root css-1wv2h5q" alt="icon" src="/github.svg"/></div></nav><div class="main-container"><div class="sidebar-container"><aside class="sidebar-content"><nav><ul class="sidebar-ul"><li><div class="flex sidebar_menuLink__JLsHD sidebar_menucaret__je0_C">React</div><ul></ul></li><li><div class="flex sidebar_menuLink__JLsHD">Nextjs</div><ul><li><a style="color:inherit" href="/nextjs/ssgUndefinedBug/">SSG undefined bug</a></li><li><a style="color:inherit" href="/nextjs/ssgRouterLocale/">SSG useRouter locale</a></li><li><a style="color:inherit" href="/nextjs/aGameSummary/">A-game 项目总结</a></li><li><a style="color:inherit" href="/nextjs/tailwind/">nextjs-新建项目-tailwind</a></li><li><a style="color:inherit" href="/nextjs/twoRouters/">两个 router 的区别</a></li><li><a style="color:inherit" href="/nextjs/pageAppRouter/">page 和 app router</a></li><li><a style="color:inherit" href="/nextjs/getStaticProps/">getStaticProps</a></li><li><a style="color:inherit" href="/nextjs/nginxLocal/">nginx 安装在本地</a></li><li><a style="color:inherit" href="/nextjs/buildOptimization/">nextjs 打包优化</a></li><li><a style="color:inherit" href="/nextjs/nextConfig202404/">next.config 2024-04</a></li><li><a style="color:inherit" href="/nextjs/cacheOptimization/">keepAlive-对缓存的优化</a></li><li><a style="color:inherit" href="/nextjs/buildFailure/">遇到的构建失败难题</a></li></ul></li><li><div class="flex sidebar_menuLink__JLsHD sidebar_menucaret__je0_C">Vue</div><ul></ul></li><li><div class="flex sidebar_menuLink__JLsHD sidebar_menucaret__je0_C">JavaScript</div><ul></ul></li><li><div class="flex sidebar_menuLink__JLsHD sidebar_menucaret__je0_C">Html css</div><ul></ul></li><li><div class="flex sidebar_menuLink__JLsHD sidebar_menucaret__je0_C">Web optimization</div><ul></ul></li><li><div class="flex sidebar_menuLink__JLsHD sidebar_menucaret__je0_C">Parsing interpretation compilation</div><ul></ul></li><li><div class="flex sidebar_menuLink__JLsHD sidebar_menucaret__je0_C">Http-browser</div><ul></ul></li><li><div class="flex sidebar_menuLink__JLsHD sidebar_menucaret__je0_C">Algorithm</div><ul></ul></li><li><div class="flex sidebar_menuLink__JLsHD sidebar_menucaret__je0_C">Docker</div><ul></ul></li><li><div class="flex sidebar_menuLink__JLsHD sidebar_menucaret__je0_C">Design patterns</div><ul></ul></li><li><a style="color:inherit" href="/resume/">Resume</a></li></ul></nav></aside></div><main class="md-container"><div class="empty-div"></div><article class="article"><pre><code>source ~/.bash_profile
+brew install nginx
+</code></pre>
+<p>Docroot is: /opt/homebrew/var/www</p>
+<p>启动：
+brew services start nginx</p>
+<p>Or, if you don&#x27;t want/need a background service you can just run:
+/opt/homebrew/opt/nginx/bin/nginx -g daemon\ off\</p>
+<pre><code>==&gt; curl
+curl is keg-only, which means it was not symlinked into /opt/homebrew,
+because macOS already provides this software and installing another version in
+parallel can cause all kinds of trouble.
+
+If you need to have curl first in your PATH, run:
+  echo &#x27;export PATH=&quot;/opt/homebrew/opt/curl/bin:$PATH&quot;&#x27; &gt;&gt; ~/.zshrc
+
+For compilers to find curl you may need to set:
+  export LDFLAGS=&quot;-L/opt/homebrew/opt/curl/lib&quot;
+  export CPPFLAGS=&quot;-I/opt/homebrew/opt/curl/include&quot;
+
+zsh completions have been installed to:
+  /opt/homebrew/opt/curl/share/zsh/site-functions
+==&gt; python@3.11
+Python is installed as
+  /opt/homebrew/bin/python3.11
+
+Unversioned and major-versioned symlinks `python`, `python3`, `python-config`, `python3-config`, `pip`, `pip3`, etc. pointing to
+`python3.11`, `python3.11-config`, `pip3.11` etc., respectively, are installed into
+  /opt/homebrew/opt/python@3.11/libexec/bin
+
+You can install Python packages with
+  pip3.11 install &lt;package&gt;
+They will install into the site-package directory
+  /opt/homebrew/lib/python3.11/site-packages
+</code></pre>
+<h2>修改配置：</h2>
+<p>brew info nginx</p>
+<p>cd /opt/homebrew/opt/nginx/bin</p>
+<p>修改配置：</p>
+<pre><code>cd /opt/homebrew/etc/nginx
+
+
+Fri Apr 18 11:28:49 CST 2025 可用
+sudo vim nginx.conf
+</code></pre>
+<h2>启动nginx</h2>
+<pre><code class="language-bash">source ~/.bash_profile
+# 启动 Nginx
+brew services start nginx
+# 重启 Nginx
+brew services restart nginx
+# 停止 Nginx
+brew services stop nginx
+</code></pre>
+<p>localhost:8080</p>
+<h2>修改网站</h2>
+<p>vim index.html</p>
+<pre><code>/opt/homebrew/var/www
+</code></pre>
+<pre><code>/Users/ruo/user-workspace/TECH/LuckyWheelCocos/build
+
+在macbook中，我需要把上面的build目录下的所有文件复制到下面的www目录
+
+/opt/homebrew/var/www
+
+sudo cp -r /Users/ruo/user-workspace/TECH/LuckyWheelCocos/build/* /opt/homebrew/var/www/
+
+sudo cp -r /opt/homebrew/var/www/web-mobile/* /opt/homebrew/var/www/
+
+sudo cp -r /Users/ruo/user-workspace/TECH/LuckyWheelCocos/build/web-mobile/* /opt/homebrew/var/www/
+
+删除文件夹里面的所有文件:
+sudo rm -rf /opt/homebrew/var/www/*
+
+删除文件夹:
+sudo rm -rf assets cocos-js src web-mobile
+
+sudo cp -r /Users/ruo/user-workspace/TECH/wheel-of-luck-pixijs/wof-wheel-pixijs/dist/* /opt/homebrew/var/www/
+
+sudo cp -r /Users/ruo/company-workspace/haixing-company/A-Haixing-game/bfun-game/out/* /opt/homebrew/var/www/
+
+sudo cp -r /Users/ruo/company-workspace/haixing-company/A-Haixing-game/hfun-game/out/* /opt/homebrew/var/www/
+
+
+sudo cp -r /Users/ruo/company-workspace/haixing-company/halachat-official/out/* /opt/homebrew/var/www/
+
+</code></pre></article></main></div></div><script src="/_next/static/chunks/webpack-6a2c37dabd206ff9.js" async=""></script><script>(self.__next_f=self.__next_f||[]).push([0]);self.__next_f.push([2,null])</script><script>self.__next_f.push([1,"1:HL[\"/_next/static/css/08ccca47812646bd.css\",\"style\"]\n"])</script><script>self.__next_f.push([1,"2:I[75726,[],\"\"]\n5:I[31699,[],\"\"]\n6:I[22579,[],\"\"]\n7:I[76270,[\"7068\",\"static/chunks/7068-a4cd9a6e0af45b4d.js\",\"7221\",\"static/chunks/7221-931ccc86aa295cd1.js\",\"3185\",\"static/chunks/app/layout-09e38df7cdd64f73.js\"],\"NavWrapper\"]\n8:I[88961,[\"7068\",\"static/chunks/7068-a4cd9a6e0af45b4d.js\",\"7221\",\"static/chunks/7221-931ccc86aa295cd1.js\",\"3185\",\"static/chunks/app/layout-09e38df7cdd64f73.js\"],\"Sidebar\"]\na:I[83141,[],\"\"]\n4:T419,==\u003e curl\ncurl is keg-only, which means it was not symlinked into /opt/homebrew,\nbecause macOS already provides this software and installing another version in\nparallel can cause all kinds of trouble.\n\nIf you need to have curl first in your PATH, run:\n  echo 'export PATH=\"/opt/homebrew/opt/curl/bin:$PATH\"' \u003e\u003e ~/.zshrc\n\nFor compilers to find curl you may need to set:\n  export LDFLAGS=\"-L/opt/homebrew/opt/curl/lib\"\n  export CPPFLAGS=\"-I/opt/homebrew/opt/curl/include\"\n\nzsh completions have been installed to:\n  /opt/homebrew/opt/curl/share/zsh/site-functions\n==\u003e python@3.11\nPython is installed as\n  /opt/homebrew/bin/python3.11\n\nUnversioned and major-versioned symlinks `python`, `python3`, `python-config`, `python3-config`, `pip`, `pip3`, etc. pointing to\n`python3.11`, `python3.11-config`, `pip3.11` etc., respectively, are installed into\n  /opt/homebrew/opt/python@3.11/libexec/bin\n\nYou can install Python packages with\n  pip3.11 install \u003cpackage\u003e\nThey will install into the site-package directory\n  /opt/homebrew/lib/python3.11/site-packages\nb:[]\n"])</script><script>self.__next_f.push([1,"0:[[[\"$\",\"link\",\"0\",{\"rel\":\"stylesheet\",\"href\":\"/_next/static/css/08ccca47812646bd.css\",\"precedence\":\"next\",\"crossOrigin\":\"$undefined\"}]],[\"$\",\"$L2\",null,{\"buildId\":\"idwNcjK9Yt81I_gQ2xKBl\",\"assetPrefix\":\"\",\"initialCanonicalUrl\":\"/nextjs/nginxLocal/\",\"initialTree\":[\"\",{\"children\":[\"nextjs\",{\"children\":[\"nginxLocal\",{\"children\":[\"__PAGE__\",{}]}]}]},\"$undefined\",\"$undefined\",true],\"initialSeedData\":[\"\",{\"children\":[\"nextjs\",{\"children\":[\"nginxLocal\",{\"children\":[\"__PAGE__\",{},[[\"$L3\",[[\"$\",\"pre\",null,{\"children\":[\"$\",\"code\",null,{\"children\":\"source ~/.bash_profile\\nbrew install nginx\\n\"}]}],\"\\n\",[\"$\",\"p\",null,{\"children\":\"Docroot is: /opt/homebrew/var/www\"}],\"\\n\",[\"$\",\"p\",null,{\"children\":\"启动：\\nbrew services start nginx\"}],\"\\n\",[\"$\",\"p\",null,{\"children\":\"Or, if you don't want/need a background service you can just run:\\n/opt/homebrew/opt/nginx/bin/nginx -g daemon\\\\ off\\\\\"}],\"\\n\",[\"$\",\"pre\",null,{\"children\":[\"$\",\"code\",null,{\"children\":\"$4\"}]}],\"\\n\",[\"$\",\"h2\",null,{\"children\":\"修改配置：\"}],\"\\n\",[\"$\",\"p\",null,{\"children\":\"brew info nginx\"}],\"\\n\",[\"$\",\"p\",null,{\"children\":\"cd /opt/homebrew/opt/nginx/bin\"}],\"\\n\",[\"$\",\"p\",null,{\"children\":\"修改配置：\"}],\"\\n\",[\"$\",\"pre\",null,{\"children\":[\"$\",\"code\",null,{\"children\":\"cd /opt/homebrew/etc/nginx\\n\\n\\nFri Apr 18 11:28:49 CST 2025 可用\\nsudo vim nginx.conf\\n\"}]}],\"\\n\",[\"$\",\"h2\",null,{\"children\":\"启动nginx\"}],\"\\n\",[\"$\",\"pre\",null,{\"children\":[\"$\",\"code\",null,{\"className\":\"language-bash\",\"children\":\"source ~/.bash_profile\\n# 启动 Nginx\\nbrew services start nginx\\n# 重启 Nginx\\nbrew services restart nginx\\n# 停止 Nginx\\nbrew services stop nginx\\n\"}]}],\"\\n\",[\"$\",\"p\",null,{\"children\":\"localhost:8080\"}],\"\\n\",[\"$\",\"h2\",null,{\"children\":\"修改网站\"}],\"\\n\",[\"$\",\"p\",null,{\"children\":\"vim index.html\"}],\"\\n\",[\"$\",\"pre\",null,{\"children\":[\"$\",\"code\",null,{\"children\":\"/opt/homebrew/var/www\\n\"}]}],\"\\n\",[\"$\",\"pre\",null,{\"children\":[\"$\",\"code\",null,{\"children\":\"/Users/ruo/user-workspace/TECH/LuckyWheelCocos/build\\n\\n在macbook中，我需要把上面的build目录下的所有文件复制到下面的www目录\\n\\n/opt/homebrew/var/www\\n\\nsudo cp -r /Users/ruo/user-workspace/TECH/LuckyWheelCocos/build/* /opt/homebrew/var/www/\\n\\nsudo cp -r /opt/homebrew/var/www/web-mobile/* /opt/homebrew/var/www/\\n\\nsudo cp -r /Users/ruo/user-workspace/TECH/LuckyWheelCocos/build/web-mobile/* /opt/homebrew/var/www/\\n\\n删除文件夹里面的所有文件:\\nsudo rm -rf /opt/homebrew/var/www/*\\n\\n删除文件夹:\\nsudo rm -rf assets cocos-js src web-mobile\\n\\nsudo cp -r /Users/ruo/user-workspace/TECH/wheel-of-luck-pixijs/wof-wheel-pixijs/dist/* /opt/homebrew/var/www/\\n\\nsudo cp -r /Users/ruo/company-workspace/haixing-company/A-Haixing-game/bfun-game/out/* /opt/homebrew/var/www/\\n\\nsudo cp -r /Users/ruo/company-workspace/haixing-company/A-Haixing-game/hfun-game/out/* /opt/homebrew/var/www/\\n\\n\\nsudo cp -r /Users/ruo/company-workspace/haixing-company/halachat-official/out/* /opt/homebrew/var/www/\\n\\n\"}]}]]],null],null]},[\"$\",\"$L5\",null,{\"parallelRouterKey\":\"children\",\"segmentPath\":[\"children\",\"nextjs\",\"children\",\"nginxLocal\",\"children\"],\"error\":\"$undefined\",\"errorStyles\":\"$undefined\",\"errorScripts\":\"$undefined\",\"template\":[\"$\",\"$L6\",null,{}],\"templateStyles\":\"$undefined\",\"templateScripts\":\"$undefined\",\"notFound\":\"$undefined\",\"notFoundStyles\":\"$undefined\",\"styles\":null}],null]},[\"$\",\"$L5\",null,{\"parallelRouterKey\":\"children\",\"segmentPath\":[\"children\",\"nextjs\",\"children\"],\"error\":\"$undefined\",\"errorStyles\":\"$undefined\",\"errorScripts\":\"$undefined\",\"template\":[\"$\",\"$L6\",null,{}],\"templateStyles\":\"$undefined\",\"templateScripts\":\"$undefined\",\"notFound\":\"$undefined\",\"notFoundStyles\":\"$undefined\",\"styles\":null}],null]},[[\"$\",\"html\",null,{\"lang\":\"en\",\"children\":[[\"$\",\"head\",null,{\"children\":[[\"$\",\"meta\",null,{\"name\":\"viewport\",\"content\":\"width=device-width, initial-scale=1\"}],[\"$\",\"link\",null,{\"data-rh\":\"true\",\"rel\":\"icon\",\"href\":\"/logo.svg\"}]]}],[\"$\",\"body\",null,{\"children\":[\"$\",\"div\",null,{\"className\":\"wrapper-box\",\"children\":[[\"$\",\"$L7\",null,{}],[\"$\",\"div\",null,{\"className\":\"main-container\",\"children\":[[\"$\",\"$L8\",null,{\"isMobile\":false}],[\"$\",\"main\",null,{\"className\":\"md-container\",\"children\":[[\"$\",\"div\",null,{\"className\":\"empty-div\"}],[\"$\",\"article\",null,{\"className\":\"article\",\"children\":[\"$\",\"$L5\",null,{\"parallelRouterKey\":\"children\",\"segmentPath\":[\"children\"],\"error\":\"$undefined\",\"errorStyles\":\"$undefined\",\"errorScripts\":\"$undefined\",\"template\":[\"$\",\"$L6\",null,{}],\"templateStyles\":\"$undefined\",\"templateScripts\":\"$undefined\",\"notFound\":[[\"$\",\"title\",null,{\"children\":\"404: This page could not be found.\"}],[\"$\",\"div\",null,{\"style\":{\"fontFamily\":\"system-ui,\\\"Segoe UI\\\",Roboto,Helvetica,Arial,sans-serif,\\\"Apple Color Emoji\\\",\\\"Segoe UI Emoji\\\"\",\"height\":\"100vh\",\"textAlign\":\"center\",\"display\":\"flex\",\"flexDirection\":\"column\",\"alignItems\":\"center\",\"justifyContent\":\"center\"},\"children\":[\"$\",\"div\",null,{\"children\":[[\"$\",\"style\",null,{\"dangerouslySetInnerHTML\":{\"__html\":\"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}\"}}],[\"$\",\"h1\",null,{\"className\":\"next-error-h1\",\"style\":{\"display\":\"inline-block\",\"margin\":\"0 20px 0 0\",\"padding\":\"0 23px 0 0\",\"fontSize\":24,\"fontWeight\":500,\"verticalAlign\":\"top\",\"lineHeight\":\"49px\"},\"children\":\"404\"}],[\"$\",\"div\",null,{\"style\":{\"display\":\"inline-block\"},\"children\":[\"$\",\"h2\",null,{\"style\":{\"fontSize\":14,\"fontWeight\":400,\"lineHeight\":\"49px\",\"margin\":0},\"children\":\"This page could not be found.\"}]}]]}]}]],\"notFoundStyles\":[],\"styles\":null}]}]]}]]}]]}]}]]}],null],null],\"couldBeIntercepted\":false,\"initialHead\":[null,\"$L9\"],\"globalErrorComponent\":\"$a\",\"missingSlots\":\"$Wb\"}]]\n"])</script><script>self.__next_f.push([1,"9:[[\"$\",\"meta\",\"0\",{\"name\":\"viewport\",\"content\":\"width=device-width, initial-scale=1\"}],[\"$\",\"meta\",\"1\",{\"charSet\":\"utf-8\"}],[\"$\",\"title\",\"2\",{\"children\":\"Block-chain\"}],[\"$\",\"meta\",\"3\",{\"name\":\"description\",\"content\":\"block-chain\"}]]\n3:null\n"])</script></body></html>

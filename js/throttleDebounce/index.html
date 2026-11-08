@@ -1,0 +1,276 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="preload" as="image" href="/logo.svg"/><link rel="preload" as="image" href="/github.svg"/><link rel="stylesheet" href="/_next/static/css/08ccca47812646bd.css" data-precedence="next"/><link rel="preload" as="script" fetchPriority="low" href="/_next/static/chunks/webpack-6a2c37dabd206ff9.js"/><script src="/_next/static/chunks/f14ca715-4f4dbb6482451e0a.js" async=""></script><script src="/_next/static/chunks/5465-2089315387f88b08.js" async=""></script><script src="/_next/static/chunks/main-app-29466430c79adc42.js" async=""></script><script src="/_next/static/chunks/7068-a4cd9a6e0af45b4d.js" async=""></script><script src="/_next/static/chunks/7221-931ccc86aa295cd1.js" async=""></script><script src="/_next/static/chunks/app/layout-09e38df7cdd64f73.js" async=""></script><link data-rh="true" rel="icon" href="/logo.svg"/><title>Block-chain</title><meta name="description" content="block-chain"/><script src="/_next/static/chunks/polyfills-78c92fac7aa8fdd8.js" noModule=""></script></head><body><div class="wrapper-box"><nav class="nav"><style data-emotion="css 159i7d">.css-159i7d{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:justify;-webkit-justify-content:space-between;justify-content:space-between;height:100%;}</style><div class="MuiBox-root css-159i7d"><div class="flex"><style data-emotion="css 1lkqgm2">.css-1lkqgm2{width:36px;margin-left:10px;border-radius:20%;}</style><img class="MuiBox-root css-1lkqgm2" alt="icon" src="/logo.svg"/></div><style data-emotion="css 1wv2h5q">.css-1wv2h5q{width:30px;margin-right:10px;border-radius:50%;}</style><img class="MuiBox-root css-1wv2h5q" alt="icon" src="/github.svg"/></div></nav><div class="main-container"><div class="sidebar-container"><aside class="sidebar-content"><nav><ul class="sidebar-ul"><li><div class="flex sidebar_menuLink__JLsHD sidebar_menucaret__je0_C">React</div><ul></ul></li><li><div class="flex sidebar_menuLink__JLsHD sidebar_menucaret__je0_C">Nextjs</div><ul></ul></li><li><div class="flex sidebar_menuLink__JLsHD sidebar_menucaret__je0_C">Vue</div><ul></ul></li><li><div class="flex sidebar_menuLink__JLsHD">JavaScript</div><ul><li><a style="color:inherit" href="/js/eventLoop/">Event Loop</a></li><li><a style="color:inherit" href="/js/vite/">Vite</a></li><li><a style="color:inherit" href="/js/nodejs/">Nodejs</a></li><li><a style="color:inherit" href="/js/webpack1/">webpack 基本原理</a></li><li><a style="color:inherit" href="/js/webpack2/">微前端</a></li><li><a style="color:inherit" href="/js/throttleDebounce/">Throttle Debounce</a></li><li><div class="flex sidebar_menuLink__JLsHD sidebar_menucaret__je0_C">jsBase</div><ul></ul></li><li><div class="flex sidebar_menuLink__JLsHD sidebar_menucaret__je0_C">Promise</div><ul></ul></li><li><div class="flex sidebar_menuLink__JLsHD sidebar_menucaret__je0_C">ts</div><ul></ul></li></ul></li><li><div class="flex sidebar_menuLink__JLsHD sidebar_menucaret__je0_C">Html css</div><ul></ul></li><li><div class="flex sidebar_menuLink__JLsHD sidebar_menucaret__je0_C">Web optimization</div><ul></ul></li><li><div class="flex sidebar_menuLink__JLsHD sidebar_menucaret__je0_C">Parsing interpretation compilation</div><ul></ul></li><li><div class="flex sidebar_menuLink__JLsHD sidebar_menucaret__je0_C">Http-browser</div><ul></ul></li><li><div class="flex sidebar_menuLink__JLsHD sidebar_menucaret__je0_C">Algorithm</div><ul></ul></li><li><div class="flex sidebar_menuLink__JLsHD sidebar_menucaret__je0_C">Docker</div><ul></ul></li><li><div class="flex sidebar_menuLink__JLsHD sidebar_menucaret__je0_C">Design patterns</div><ul></ul></li><li><a style="color:inherit" href="/resume/">Resume</a></li></ul></nav></aside></div><main class="md-container"><div class="empty-div"></div><article class="article"><h3>二者区别</h3>
+<p>函数节流（throttle）与 函数防抖（debounce）都是为了限制函数的执行频次，以优化函数触发频率过高导致的响应速度跟不上触发频率，出现延迟，假死或卡顿的现象。</p>
+<p>最本质的区别是是否需要对最终的结果负责:</p>
+<ul>
+<li>
+<p>防抖的目的即是为了拿到最终的结果，所以前面不管触发多少次，我们都可以不管，只等到它不再触发了才做最后的处理。将多次操作合并为一次操作进行。原理是维护一个计时器，规定在delay时间后触发函数，但是在delay时间内再次触发的话，就会取消之前的计时器而重新设置。这样一来，只有最后一次操作能被触发。</p>
+</li>
+<li>
+<p>而节流是对相同事件的触发频率的控制，它触发的次数不会造成不同的结果。
+区别： 函数节流不管事件触发有多频繁，都会保证在规定时间内一定会执行一次真正的事件处理函数，而函数防抖只是在最后一次事件后才触发一次函数。 比如在页面的无限加载场景下，我们需要用户在滚动页面时，每隔一段时间发一次 Ajax 请求，而不是在用户停下滚动页面操作时才去请求数据。这样的场景，就适合用节流技术来实现。</p>
+</li>
+</ul>
+<h2>防抖 debounce</h2>
+<p>触发高频事件后n秒内函数只会执行一次，如果n秒内高频事件再次被触发，则重新计算时间。</p>
+<p>在事件被触发n秒后再执行回调函数，如果在这n秒内又被触发，则重新计时。</p>
+<p>当持续触发事件时，一定时间段内没有再触发事件，事件处理函数才会执行一次，如果设定的时间到来之前，又一次触发了事件，就重新开始延时。</p>
+<p>防抖实现原理:
+维护一个计时器，规定在 delay 时间后触发函数，但是在 delay 时间内再次触发的话，就会取消之前的计时器而重新设置。这样一来，只有最后一次操作能被触发。</p>
+<pre><code class="language-js">function debounce(fn, ms) {
+  let timer;
+
+  return function (...args) {
+    if (timer) {
+      clearTimeout(timer);
+    }
+    timer = setTimeout(() =&gt; {
+      fn(...args);
+      timer = null;
+    }, ms);
+  };
+}
+</code></pre>
+<p>函数防抖的要点，是需要一个 setTimeout 来辅助实现，延迟运行需要执行的代码。如果方法多次触发，则把上次记录的延迟执行代码用 clearTimeout 清掉，重新开始计时。若计时期间事件没有被重新触发，等延迟时间计时完毕，则执行目标代码。</p>
+<pre><code class="language-js">function debounce(fn,wait){
+    var timer = null;
+    return function(){
+        if(timer !== null){
+            clearTimeout(timer);
+        }
+        timer = setTimeout(fn,wait);
+    }
+}
+    
+function handle(){
+    console.log(Math.random());
+}
+    
+window.addEventListener(&quot;resize&quot;,debounce(handle,1000));
+</code></pre>
+<h3>应用场景</h3>
+<ul>
+<li>
+<p>用户在输入框中连续输入一串字符后，只会在输入完后去执行最后一次的查询ajax请求，这样可以有效减少请求次数，节约请求资源；</p>
+</li>
+<li>
+<p>window的resize、scroll事件，不断地调整浏览器的窗口大小、或者滚动时会触发对应事件，防抖让其只触发一次；</p>
+</li>
+</ul>
+<h2>防抖函数</h2>
+<p>一个经典的防抖函数可能是这样的：</p>
+<pre><code class="language-js">function debounce(fn, ms) {
+  let timer;
+  return function (...args) {
+    if (timer) {
+      clearTimeout(timer);
+    }
+    timer = setTimeout(() =&gt; {
+      fn(...args);
+      timer = null;
+    }, ms);
+  };
+}
+</code></pre>
+<h2>react hooks</h2>
+<pre><code class="language-js">import React, { useEffect, useState } from &quot;react&quot;;
+import { debounce } from &quot;lodash&quot;;
+import { Box } from &quot;@fower/react&quot;;
+import { Input } from &quot;../../components/Input/index&quot;;
+
+const CrytoIncreaseCalculator = () =&gt; {
+  const [inputVal, setInputVal] = useState &lt; string &gt; &quot;100&quot;;
+
+  const queryUtil = (val: string) =&gt; {
+    console.log(&quot;query:&quot;, val);
+    console.log(&quot;分割线------&gt;&quot;);
+  };
+
+  const delayQuery = debounce((val) =&gt; queryUtil(val), 1000);
+
+  const onInput = (e: any) =&gt; {
+    const val = e.target.value;
+    console.log(&quot;input:&quot;, val);
+
+    delayQuery(val);
+
+    setInputVal(val);
+  };
+
+  useEffect(() =&gt; {}, []);
+
+  return (
+    &lt;Box&gt;
+      CrytoIncreaseCalculator
+      &lt;Input
+        onChange={(e) =&gt; onInput(e)}
+        value={inputVal}
+        placeholder=&quot;请输入价格&quot;
+      /&gt;
+    &lt;/Box&gt;
+  );
+};
+
+export default CrytoIncreaseCalculator;
+</code></pre>
+<p>代码执行结果是，每次监听只是把结果延迟了，执行的次数并未改变.
+每次组件重新渲染，都会执行一遍所有的 hooks，这样 debounce 高阶函数里面的 timer 就不能起到缓存的作用（每次重渲染都被置空）。timer 不可靠，debounce 的核心就被破坏了。
+必须存储被删除的变量和方法的引用。无法使用 useState(),去存储。通过自定义 Hooks 组件去解决问题。</p>
+<h2>Hook 防抖</h2>
+<pre><code class="language-js">export default function() {
+  const [counter1, setCounter1] = useState(0);
+  const [counter2, setCounter2] = useState(0);
+
+  const handleClick = useDebounce(function() {
+    setCounter1(counter1 + 1)
+  }, 500)
+ // 补充一个函数，加载后会自动更新counter2的数值
+  useEffect(function() {
+    const t = setInterval(() =&gt; {
+      setCounter2(x =&gt; x + 1)
+    }, 500);
+    return () =&gt; clearInterval(t)
+  }, [])
+
+
+  return &lt;div style={{ padding: 30 }}&gt;
+    &lt;Button
+      onClick={function() {
+        handleClick()
+      }}
+    &gt;click&lt;/Button&gt;
+    &lt;div&gt;{counter1}&lt;/div&gt;
+    &lt;div&gt;{counter2}&lt;/div&gt;
+  &lt;/div&gt;
+}
+
+防抖函数必须在只执行一次的位置调用。在类组件中，放在constructor里或者变量函数生成的时候都可以，因为类组件只会初始化一次，后续组件中绑定的函数永远是不变的，因此依据闭包原理保存下来的状态会起作用。
+
+而在函数式组件中，每次render时，内部函数会重新生成并绑定到组件上去。当组件只有一个state会影响render时，我们
+
+1.狂点按钮，
+2.只会触发点击事件，不会重新渲染，
+3.当前组件绑定的事件函数没有变化，防抖函数是同一个，因此防抖起作用
+
+但是当有其他state影响渲染后
+
+1.狂点按钮
+2.触发事件，不重新渲染
+3.count2发生变化，重新渲染
+4.handleClick重新生成并绑定到组件，
+5.原有函数失效，防抖失效，原有函数延迟一定后执行
+6.counter1发生变化
+</code></pre>
+<h2>怎么实现 react hook 防抖呢？核心思想就是，保证每次渲染时，绑定到组件上的函数是同一个防抖函数。</h2>
+<p>我们逐步类推一下，首先，既然要保证是同一个防抖函数，那么试试 useCallback 或者 useMemo 吧，这个 hook 可以保证依赖不变时，返回同一个值。</p>
+<p>来，让我们加一层包装，依赖传入空数组，保证 useCallback 永远返回同一个函数</p>
+<pre><code class="language-js">function useDebounce(fn, delay) {
+  return useCallback(debounce(fn, delay), [])
+}
+
+export default function() {
+  const [counter, setCounter] = useState(0);
+
+  const handleClick = useDebounce(function() {
+    setCounter(counter + 1)
+  }, 1000)
+
+  return &lt;div style={{ padding: 30 }}&gt;
+    &lt;Button
+      onClick={handleClick}
+    &gt;click&lt;/Button&gt;
+    &lt;div&gt;{counter}&lt;/div&gt;
+  &lt;/div&gt;
+}
+</code></pre>
+<p>本次使用单个counter进行调试，猜猜结果？</p>
+<p>counter从0变到1后就不会改变了。why？如果你理解闭包的原理，那你应该能理解快照的概念。</p>
+<p>由于我们的useCallback依赖为空数组，所以组件初始化完成后，handleClick函数永远为初始化时的函数快照，也就是后续组件重新渲染时不会更新handleClick，同时，handleClick持有的counter也为本次函数创建时的快照，即永远为0,所以，哪怕防抖函数保持不变，也没法使程序正常运行。</p>
+<p>还有什么能保证数据唯一性呢？useRef～ 上面方法的问题在于，要么没法保证防抖函数唯一，致使timer失去效果，要么没法保证调用函数是最新的，使调用函数失去效果，中和一下两种方法，结果就出来了。</p>
+<pre><code class="language-js">function useDebounce(fn, delay, dep = []) {
+  const { current } = useRef({ fn, timer: null });
+  useEffect(function () {
+    current.fn = fn;
+  }, [fn]);
+
+  return useCallback(function f(...args) {
+    if (current.timer) {
+      clearTimeout(current.timer);
+    }
+    current.timer = setTimeout(() =&gt; {
+      current.fn.call(this, ...args);
+    }, delay);
+  }, dep)
+}
+</code></pre>
+<h2>节流</h2>
+<p>高频事件触发，但在n秒内只会执行一次，所以节流会稀释函数的执行频率。</p>
+<p>当持续触发事件时，保证一定时间段内只调用一次事件处理函数。</p>
+<p>规定一个单位时间，在这个单位时间内，只能有一次触发事件的回调函数执行，如果在同一个单位时间内某事件被触发多次，只有一次能生效。</p>
+<p>节流实现原理： 维护一个计时器，规定在 delay 时间后触发函数，但是在 delay 时间内再次触发的话，会判断是否有延迟调用函数未执行，有则返回，没有则设定在 delay 时间后触发函数</p>
+<p>实现方式：每次触发事件时，如果当前有等待执行的延时函数，则直接return</p>
+<pre><code class="language-js">//节流throttle代码：
+function throttle(fn,delay) {
+    let canRun = true; // 通过闭包保存一个标记
+    return function () {
+        //在函数开头判断标记是否为true，不为true则return
+        if (!canRun) return;
+        //立即设置为false
+        canRun = false;
+        //将外部传入的函数的执行放在setTimeout中
+        setTimeout(() =&gt; {
+        //最后在setTimeout执行完毕后再把标记设置为true(关键)表示可以执行下一次循环了。
+        //当定时器没有执行的时候标记永远是false，在开头被return掉
+            fn.apply(this, arguments);
+            canRun = true;
+        }, delay);
+    };
+}
+function sayHi(e) {
+    console.log(&#x27;节流：&#x27;, e.target.innerWidth, e.target.innerHeight);
+}
+window.addEventListener(&#x27;resize&#x27;, throttle(sayHi,500));
+</code></pre>
+<h3>应用场景</h3>
+<ol>
+<li>
+<p>鼠标连续不断地触发某事件（如点击），只在单位时间内只触发一次；</p>
+</li>
+<li>
+<p>在页面的无限加载场景下，需要用户在滚动页面时，每隔一段时间发一次 ajax 请求，而不是在用户停下滚动页面操作时才去请求数据；</p>
+</li>
+<li>
+<p>监听滚动事件，比如是否滑到底部自动加载更多，用 throttle 来判断；</p>
+</li>
+</ol>
+<pre><code class="language-js">function throttle(fn, ms) {
+  let timer;
+  return function (...args) {
+    if (timer) return;
+    canRun = false;
+    timer = setTimeout(() =&gt; {
+      fn(...args);
+      timer = null;
+    }, ms);
+  };
+}
+</code></pre>
+<h2>hooks 节流</h2>
+<pre><code class="language-js">function useThrottle(fn, delay, dep = []) {
+  const { current } = useRef({ fn, timer: null });
+  useEffect(
+    function () {
+      current.fn = fn;
+    },
+    [fn]
+  );
+
+  return useCallback(function f(...args) {
+    if (!current.timer) {
+      current.timer = setTimeout(() =&gt; {
+        delete current.timer;
+      }, delay);
+      current.fn.call(this, ...args);
+    }
+  }, dep);
+}
+</code></pre></article></main></div></div><script src="/_next/static/chunks/webpack-6a2c37dabd206ff9.js" async=""></script><script>(self.__next_f=self.__next_f||[]).push([0]);self.__next_f.push([2,null])</script><script>self.__next_f.push([1,"1:HL[\"/_next/static/css/08ccca47812646bd.css\",\"style\"]\n"])</script><script>self.__next_f.push([1,"2:I[75726,[],\"\"]\n4:I[31699,[],\"\"]\n5:I[22579,[],\"\"]\n6:I[76270,[\"7068\",\"static/chunks/7068-a4cd9a6e0af45b4d.js\",\"7221\",\"static/chunks/7221-931ccc86aa295cd1.js\",\"3185\",\"static/chunks/app/layout-09e38df7cdd64f73.js\"],\"NavWrapper\"]\n7:I[88961,[\"7068\",\"static/chunks/7068-a4cd9a6e0af45b4d.js\",\"7221\",\"static/chunks/7221-931ccc86aa295cd1.js\",\"3185\",\"static/chunks/app/layout-09e38df7cdd64f73.js\"],\"Sidebar\"]\n9:I[83141,[],\"\"]\na:[]\n"])</script><script>self.__next_f.push([1,"0:[[[\"$\",\"link\",\"0\",{\"rel\":\"stylesheet\",\"href\":\"/_next/static/css/08ccca47812646bd.css\",\"precedence\":\"next\",\"crossOrigin\":\"$undefined\"}]],[\"$\",\"$L2\",null,{\"buildId\":\"idwNcjK9Yt81I_gQ2xKBl\",\"assetPrefix\":\"\",\"initialCanonicalUrl\":\"/js/throttleDebounce/\",\"initialTree\":[\"\",{\"children\":[\"js\",{\"children\":[\"throttleDebounce\",{\"children\":[\"__PAGE__\",{}]}]}]},\"$undefined\",\"$undefined\",true],\"initialSeedData\":[\"\",{\"children\":[\"js\",{\"children\":[\"throttleDebounce\",{\"children\":[\"__PAGE__\",{},[[\"$L3\",[[\"$\",\"h3\",null,{\"children\":\"二者区别\"}],\"\\n\",[\"$\",\"p\",null,{\"children\":\"函数节流（throttle）与 函数防抖（debounce）都是为了限制函数的执行频次，以优化函数触发频率过高导致的响应速度跟不上触发频率，出现延迟，假死或卡顿的现象。\"}],\"\\n\",[\"$\",\"p\",null,{\"children\":\"最本质的区别是是否需要对最终的结果负责:\"}],\"\\n\",[\"$\",\"ul\",null,{\"children\":[\"\\n\",[\"$\",\"li\",null,{\"children\":[\"\\n\",[\"$\",\"p\",null,{\"children\":\"防抖的目的即是为了拿到最终的结果，所以前面不管触发多少次，我们都可以不管，只等到它不再触发了才做最后的处理。将多次操作合并为一次操作进行。原理是维护一个计时器，规定在delay时间后触发函数，但是在delay时间内再次触发的话，就会取消之前的计时器而重新设置。这样一来，只有最后一次操作能被触发。\"}],\"\\n\"]}],\"\\n\",[\"$\",\"li\",null,{\"children\":[\"\\n\",[\"$\",\"p\",null,{\"children\":\"而节流是对相同事件的触发频率的控制，它触发的次数不会造成不同的结果。\\n区别： 函数节流不管事件触发有多频繁，都会保证在规定时间内一定会执行一次真正的事件处理函数，而函数防抖只是在最后一次事件后才触发一次函数。 比如在页面的无限加载场景下，我们需要用户在滚动页面时，每隔一段时间发一次 Ajax 请求，而不是在用户停下滚动页面操作时才去请求数据。这样的场景，就适合用节流技术来实现。\"}],\"\\n\"]}],\"\\n\"]}],\"\\n\",[\"$\",\"h2\",null,{\"children\":\"防抖 debounce\"}],\"\\n\",[\"$\",\"p\",null,{\"children\":\"触发高频事件后n秒内函数只会执行一次，如果n秒内高频事件再次被触发，则重新计算时间。\"}],\"\\n\",[\"$\",\"p\",null,{\"children\":\"在事件被触发n秒后再执行回调函数，如果在这n秒内又被触发，则重新计时。\"}],\"\\n\",[\"$\",\"p\",null,{\"children\":\"当持续触发事件时，一定时间段内没有再触发事件，事件处理函数才会执行一次，如果设定的时间到来之前，又一次触发了事件，就重新开始延时。\"}],\"\\n\",[\"$\",\"p\",null,{\"children\":\"防抖实现原理:\\n维护一个计时器，规定在 delay 时间后触发函数，但是在 delay 时间内再次触发的话，就会取消之前的计时器而重新设置。这样一来，只有最后一次操作能被触发。\"}],\"\\n\",[\"$\",\"pre\",null,{\"children\":[\"$\",\"code\",null,{\"className\":\"language-js\",\"children\":\"function debounce(fn, ms) {\\n  let timer;\\n\\n  return function (...args) {\\n    if (timer) {\\n      clearTimeout(timer);\\n    }\\n    timer = setTimeout(() =\u003e {\\n      fn(...args);\\n      timer = null;\\n    }, ms);\\n  };\\n}\\n\"}]}],\"\\n\",[\"$\",\"p\",null,{\"children\":\"函数防抖的要点，是需要一个 setTimeout 来辅助实现，延迟运行需要执行的代码。如果方法多次触发，则把上次记录的延迟执行代码用 clearTimeout 清掉，重新开始计时。若计时期间事件没有被重新触发，等延迟时间计时完毕，则执行目标代码。\"}],\"\\n\",[\"$\",\"pre\",null,{\"children\":[\"$\",\"code\",null,{\"className\":\"language-js\",\"children\":\"function debounce(fn,wait){\\n    var timer = null;\\n    return function(){\\n        if(timer !== null){\\n            clearTimeout(timer);\\n        }\\n        timer = setTimeout(fn,wait);\\n    }\\n}\\n    \\nfunction handle(){\\n    console.log(Math.random());\\n}\\n    \\nwindow.addEventListener(\\\"resize\\\",debounce(handle,1000));\\n\"}]}],\"\\n\",[\"$\",\"h3\",null,{\"children\":\"应用场景\"}],\"\\n\",[\"$\",\"ul\",null,{\"children\":[\"\\n\",[\"$\",\"li\",null,{\"children\":[\"\\n\",[\"$\",\"p\",null,{\"children\":\"用户在输入框中连续输入一串字符后，只会在输入完后去执行最后一次的查询ajax请求，这样可以有效减少请求次数，节约请求资源；\"}],\"\\n\"]}],\"\\n\",[\"$\",\"li\",null,{\"children\":[\"\\n\",[\"$\",\"p\",null,{\"children\":\"window的resize、scroll事件，不断地调整浏览器的窗口大小、或者滚动时会触发对应事件，防抖让其只触发一次；\"}],\"\\n\"]}],\"\\n\"]}],\"\\n\",[\"$\",\"h2\",null,{\"children\":\"防抖函数\"}],\"\\n\",[\"$\",\"p\",null,{\"children\":\"一个经典的防抖函数可能是这样的：\"}],\"\\n\",[\"$\",\"pre\",null,{\"children\":[\"$\",\"code\",null,{\"className\":\"language-js\",\"children\":\"function debounce(fn, ms) {\\n  let timer;\\n  return function (...args) {\\n    if (timer) {\\n      clearTimeout(timer);\\n    }\\n    timer = setTimeout(() =\u003e {\\n      fn(...args);\\n      timer = null;\\n    }, ms);\\n  };\\n}\\n\"}]}],\"\\n\",[\"$\",\"h2\",null,{\"children\":\"react hooks\"}],\"\\n\",[\"$\",\"pre\",null,{\"children\":[\"$\",\"code\",null,{\"className\":\"language-js\",\"children\":\"import React, { useEffect, useState } from \\\"react\\\";\\nimport { debounce } from \\\"lodash\\\";\\nimport { Box } from \\\"@fower/react\\\";\\nimport { Input } from \\\"../../components/Input/index\\\";\\n\\nconst CrytoIncreaseCalculator = () =\u003e {\\n  const [inputVal, setInputVal] = useState \u003c string \u003e \\\"100\\\";\\n\\n  const queryUtil = (val: string) =\u003e {\\n    console.log(\\\"query:\\\", val);\\n    console.log(\\\"分割线------\u003e\\\");\\n  };\\n\\n  const delayQuery = debounce((val) =\u003e queryUtil(val), 1000);\\n\\n  const onInput = (e: any) =\u003e {\\n    const val = e.target.value;\\n    console.log(\\\"input:\\\", val);\\n\\n    delayQuery(val);\\n\\n    setInputVal(val);\\n  };\\n\\n  useEffect(() =\u003e {}, []);\\n\\n  return (\\n    \u003cBox\u003e\\n      CrytoIncreaseCalculator\\n      \u003cInput\\n        onChange={(e) =\u003e onInput(e)}\\n        value={inputVal}\\n        placeholder=\\\"请输入价格\\\"\\n      /\u003e\\n    \u003c/Box\u003e\\n  );\\n};\\n\\nexport default CrytoIncreaseCalculator;\\n\"}]}],\"\\n\",[\"$\",\"p\",null,{\"children\":\"代码执行结果是，每次监听只是把结果延迟了，执行的次数并未改变.\\n每次组件重新渲染，都会执行一遍所有的 hooks，这样 debounce 高阶函数里面的 timer 就不能起到缓存的作用（每次重渲染都被置空）。timer 不可靠，debounce 的核心就被破坏了。\\n必须存储被删除的变量和方法的引用。无法使用 useState(),去存储。通过自定义 Hooks 组件去解决问题。\"}],\"\\n\",[\"$\",\"h2\",null,{\"children\":\"Hook 防抖\"}],\"\\n\",[\"$\",\"pre\",null,{\"children\":[\"$\",\"code\",null,{\"className\":\"language-js\",\"children\":\"export default function() {\\n  const [counter1, setCounter1] = useState(0);\\n  const [counter2, setCounter2] = useState(0);\\n\\n  const handleClick = useDebounce(function() {\\n    setCounter1(counter1 + 1)\\n  }, 500)\\n // 补充一个函数，加载后会自动更新counter2的数值\\n  useEffect(function() {\\n    const t = setInterval(() =\u003e {\\n      setCounter2(x =\u003e x + 1)\\n    }, 500);\\n    return () =\u003e clearInterval(t)\\n  }, [])\\n\\n\\n  return \u003cdiv style={{ padding: 30 }}\u003e\\n    \u003cButton\\n      onClick={function() {\\n        handleClick()\\n      }}\\n    \u003eclick\u003c/Button\u003e\\n    \u003cdiv\u003e{counter1}\u003c/div\u003e\\n    \u003cdiv\u003e{counter2}\u003c/div\u003e\\n  \u003c/div\u003e\\n}\\n\\n防抖函数必须在只执行一次的位置调用。在类组件中，放在constructor里或者变量函数生成的时候都可以，因为类组件只会初始化一次，后续组件中绑定的函数永远是不变的，因此依据闭包原理保存下来的状态会起作用。\\n\\n而在函数式组件中，每次render时，内部函数会重新生成并绑定到组件上去。当组件只有一个state会影响render时，我们\\n\\n1.狂点按钮，\\n2.只会触发点击事件，不会重新渲染，\\n3.当前组件绑定的事件函数没有变化，防抖函数是同一个，因此防抖起作用\\n\\n但是当有其他state影响渲染后\\n\\n1.狂点按钮\\n2.触发事件，不重新渲染\\n3.count2发生变化，重新渲染\\n4.handleClick重新生成并绑定到组件，\\n5.原有函数失效，防抖失效，原有函数延迟一定后执行\\n6.counter1发生变化\\n\"}]}],\"\\n\",[\"$\",\"h2\",null,{\"children\":\"怎么实现 react hook 防抖呢？核心思想就是，保证每次渲染时，绑定到组件上的函数是同一个防抖函数。\"}],\"\\n\",[\"$\",\"p\",null,{\"children\":\"我们逐步类推一下，首先，既然要保证是同一个防抖函数，那么试试 useCallback 或者 useMemo 吧，这个 hook 可以保证依赖不变时，返回同一个值。\"}],\"\\n\",[\"$\",\"p\",null,{\"children\":\"来，让我们加一层包装，依赖传入空数组，保证 useCallback 永远返回同一个函数\"}],\"\\n\",[\"$\",\"pre\",null,{\"children\":[\"$\",\"code\",null,{\"className\":\"language-js\",\"children\":\"function useDebounce(fn, delay) {\\n  return useCallback(debounce(fn, delay), [])\\n}\\n\\nexport default function() {\\n  const [counter, setCounter] = useState(0);\\n\\n  const handleClick = useDebounce(function() {\\n    setCounter(counter + 1)\\n  }, 1000)\\n\\n  return \u003cdiv style={{ padding: 30 }}\u003e\\n    \u003cButton\\n      onClick={handleClick}\\n    \u003eclick\u003c/Button\u003e\\n    \u003cdiv\u003e{counter}\u003c/div\u003e\\n  \u003c/div\u003e\\n}\\n\"}]}],\"\\n\",[\"$\",\"p\",null,{\"children\":\"本次使用单个counter进行调试，猜猜结果？\"}],\"\\n\",[\"$\",\"p\",null,{\"children\":\"counter从0变到1后就不会改变了。why？如果你理解闭包的原理，那你应该能理解快照的概念。\"}],\"\\n\",[\"$\",\"p\",null,{\"children\":\"由于我们的useCallback依赖为空数组，所以组件初始化完成后，handleClick函数永远为初始化时的函数快照，也就是后续组件重新渲染时不会更新handleClick，同时，handleClick持有的counter也为本次函数创建时的快照，即永远为0,所以，哪怕防抖函数保持不变，也没法使程序正常运行。\"}],\"\\n\",[\"$\",\"p\",null,{\"children\":\"还有什么能保证数据唯一性呢？useRef～ 上面方法的问题在于，要么没法保证防抖函数唯一，致使timer失去效果，要么没法保证调用函数是最新的，使调用函数失去效果，中和一下两种方法，结果就出来了。\"}],\"\\n\",[\"$\",\"pre\",null,{\"children\":[\"$\",\"code\",null,{\"className\":\"language-js\",\"children\":\"function useDebounce(fn, delay, dep = []) {\\n  const { current } = useRef({ fn, timer: null });\\n  useEffect(function () {\\n    current.fn = fn;\\n  }, [fn]);\\n\\n  return useCallback(function f(...args) {\\n    if (current.timer) {\\n      clearTimeout(current.timer);\\n    }\\n    current.timer = setTimeout(() =\u003e {\\n      current.fn.call(this, ...args);\\n    }, delay);\\n  }, dep)\\n}\\n\"}]}],\"\\n\",[\"$\",\"h2\",null,{\"children\":\"节流\"}],\"\\n\",[\"$\",\"p\",null,{\"children\":\"高频事件触发，但在n秒内只会执行一次，所以节流会稀释函数的执行频率。\"}],\"\\n\",[\"$\",\"p\",null,{\"children\":\"当持续触发事件时，保证一定时间段内只调用一次事件处理函数。\"}],\"\\n\",[\"$\",\"p\",null,{\"children\":\"规定一个单位时间，在这个单位时间内，只能有一次触发事件的回调函数执行，如果在同一个单位时间内某事件被触发多次，只有一次能生效。\"}],\"\\n\",[\"$\",\"p\",null,{\"children\":\"节流实现原理： 维护一个计时器，规定在 delay 时间后触发函数，但是在 delay 时间内再次触发的话，会判断是否有延迟调用函数未执行，有则返回，没有则设定在 delay 时间后触发函数\"}],\"\\n\",[\"$\",\"p\",null,{\"children\":\"实现方式：每次触发事件时，如果当前有等待执行的延时函数，则直接return\"}],\"\\n\",[\"$\",\"pre\",null,{\"children\":[\"$\",\"code\",null,{\"className\":\"language-js\",\"children\":\"//节流throttle代码：\\nfunction throttle(fn,delay) {\\n    let canRun = true; // 通过闭包保存一个标记\\n    return function () {\\n        //在函数开头判断标记是否为true，不为true则return\\n        if (!canRun) return;\\n        //立即设置为false\\n        canRun = false;\\n        //将外部传入的函数的执行放在setTimeout中\\n        setTimeout(() =\u003e {\\n        //最后在setTimeout执行完毕后再把标记设置为true(关键)表示可以执行下一次循环了。\\n        //当定时器没有执行的时候标记永远是false，在开头被return掉\\n            fn.apply(this, arguments);\\n            canRun = true;\\n        }, delay);\\n    };\\n}\\nfunction sayHi(e) {\\n    console.log('节流：', e.target.innerWidth, e.target.innerHeight);\\n}\\nwindow.addEventListener('resize', throttle(sayHi,500));\\n\"}]}],\"\\n\",[\"$\",\"h3\",null,{\"children\":\"应用场景\"}],\"\\n\",[\"$\",\"ol\",null,{\"children\":[\"\\n\",[\"$\",\"li\",null,{\"children\":[\"\\n\",[\"$\",\"p\",null,{\"children\":\"鼠标连续不断地触发某事件（如点击），只在单位时间内只触发一次；\"}],\"\\n\"]}],\"\\n\",[\"$\",\"li\",null,{\"children\":[\"\\n\",[\"$\",\"p\",null,{\"children\":\"在页面的无限加载场景下，需要用户在滚动页面时，每隔一段时间发一次 ajax 请求，而不是在用户停下滚动页面操作时才去请求数据；\"}],\"\\n\"]}],\"\\n\",[\"$\",\"li\",null,{\"children\":[\"\\n\",[\"$\",\"p\",null,{\"children\":\"监听滚动事件，比如是否滑到底部自动加载更多，用 throttle 来判断；\"}],\"\\n\"]}],\"\\n\"]}],\"\\n\",[\"$\",\"pre\",null,{\"children\":[\"$\",\"code\",null,{\"className\":\"language-js\",\"children\":\"function throttle(fn, ms) {\\n  let timer;\\n  return function (...args) {\\n    if (timer) return;\\n    canRun = false;\\n    timer = setTimeout(() =\u003e {\\n      fn(...args);\\n      timer = null;\\n    }, ms);\\n  };\\n}\\n\"}]}],\"\\n\",[\"$\",\"h2\",null,{\"children\":\"hooks 节流\"}],\"\\n\",[\"$\",\"pre\",null,{\"children\":[\"$\",\"code\",null,{\"className\":\"language-js\",\"children\":\"function useThrottle(fn, delay, dep = []) {\\n  const { current } = useRef({ fn, timer: null });\\n  useEffect(\\n    function () {\\n      current.fn = fn;\\n    },\\n    [fn]\\n  );\\n\\n  return useCallback(function f(...args) {\\n    if (!current.timer) {\\n      current.timer = setTimeout(() =\u003e {\\n        delete current.timer;\\n      }, delay);\\n      current.fn.call(this, ...args);\\n    }\\n  }, dep);\\n}\\n\"}]}]]],null],null]},[\"$\",\"$L4\",null,{\"parallelRouterKey\":\"children\",\"segmentPath\":[\"children\",\"js\",\"children\",\"throttleDebounce\",\"children\"],\"error\":\"$undefined\",\"errorStyles\":\"$undefined\",\"errorScripts\":\"$undefined\",\"template\":[\"$\",\"$L5\",null,{}],\"templateStyles\":\"$undefined\",\"templateScripts\":\"$undefined\",\"notFound\":\"$undefined\",\"notFoundStyles\":\"$undefined\",\"styles\":null}],null]},[\"$\",\"$L4\",null,{\"parallelRouterKey\":\"children\",\"segmentPath\":[\"children\",\"js\",\"children\"],\"error\":\"$undefined\",\"errorStyles\":\"$undefined\",\"errorScripts\":\"$undefined\",\"template\":[\"$\",\"$L5\",null,{}],\"templateStyles\":\"$undefined\",\"templateScripts\":\"$undefined\",\"notFound\":\"$undefined\",\"notFoundStyles\":\"$undefined\",\"styles\":null}],null]},[[\"$\",\"html\",null,{\"lang\":\"en\",\"children\":[[\"$\",\"head\",null,{\"children\":[[\"$\",\"meta\",null,{\"name\":\"viewport\",\"content\":\"width=device-width, initial-scale=1\"}],[\"$\",\"link\",null,{\"data-rh\":\"true\",\"rel\":\"icon\",\"href\":\"/logo.svg\"}]]}],[\"$\",\"body\",null,{\"children\":[\"$\",\"div\",null,{\"className\":\"wrapper-box\",\"children\":[[\"$\",\"$L6\",null,{}],[\"$\",\"div\",null,{\"className\":\"main-container\",\"children\":[[\"$\",\"$L7\",null,{\"isMobile\":false}],[\"$\",\"main\",null,{\"className\":\"md-container\",\"children\":[[\"$\",\"div\",null,{\"className\":\"empty-div\"}],[\"$\",\"article\",null,{\"className\":\"article\",\"children\":[\"$\",\"$L4\",null,{\"parallelRouterKey\":\"children\",\"segmentPath\":[\"children\"],\"error\":\"$undefined\",\"errorStyles\":\"$undefined\",\"errorScripts\":\"$undefined\",\"template\":[\"$\",\"$L5\",null,{}],\"templateStyles\":\"$undefined\",\"templateScripts\":\"$undefined\",\"notFound\":[[\"$\",\"title\",null,{\"children\":\"404: This page could not be found.\"}],[\"$\",\"div\",null,{\"style\":{\"fontFamily\":\"system-ui,\\\"Segoe UI\\\",Roboto,Helvetica,Arial,sans-serif,\\\"Apple Color Emoji\\\",\\\"Segoe UI Emoji\\\"\",\"height\":\"100vh\",\"textAlign\":\"center\",\"display\":\"flex\",\"flexDirection\":\"column\",\"alignItems\":\"center\",\"justifyContent\":\"center\"},\"children\":[\"$\",\"div\",null,{\"children\":[[\"$\",\"style\",null,{\"dangerouslySetInnerHTML\":{\"__html\":\"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}\"}}],[\"$\",\"h1\",null,{\"className\":\"next-error-h1\",\"style\":{\"display\":\"inline-block\",\"margin\":\"0 20px 0 0\",\"padding\":\"0 23px 0 0\",\"fontSize\":24,\"fontWeight\":500,\"verticalAlign\":\"top\",\"lineHeight\":\"49px\"},\"children\":\"404\"}],[\"$\",\"div\",null,{\"style\":{\"display\":\"inline-block\"},\"children\":[\"$\",\"h2\",null,{\"style\":{\"fontSize\":14,\"fontWeight\":400,\"lineHeight\":\"49px\",\"margin\":0},\"children\":\"This page could not be found.\"}]}]]}]}]],\"notFoundStyles\":[],\"styles\":null}]}]]}]]}]]}]}]]}],null],null],\"couldBeIntercepted\":false,\"initialHead\":[null,\"$L8\"],\"globalErrorComponent\":\"$9\",\"missingSlots\":\"$Wa\"}]]\n"])</script><script>self.__next_f.push([1,"8:[[\"$\",\"meta\",\"0\",{\"name\":\"viewport\",\"content\":\"width=device-width, initial-scale=1\"}],[\"$\",\"meta\",\"1\",{\"charSet\":\"utf-8\"}],[\"$\",\"title\",\"2\",{\"children\":\"Block-chain\"}],[\"$\",\"meta\",\"3\",{\"name\":\"description\",\"content\":\"block-chain\"}]]\n3:null\n"])</script></body></html>

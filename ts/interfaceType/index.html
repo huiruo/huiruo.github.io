@@ -1,0 +1,101 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="preload" as="image" href="/logo.svg"/><link rel="preload" as="image" href="/github.svg"/><link rel="stylesheet" href="/_next/static/css/08ccca47812646bd.css" data-precedence="next"/><link rel="preload" as="script" fetchPriority="low" href="/_next/static/chunks/webpack-6a2c37dabd206ff9.js"/><script src="/_next/static/chunks/f14ca715-4f4dbb6482451e0a.js" async=""></script><script src="/_next/static/chunks/5465-2089315387f88b08.js" async=""></script><script src="/_next/static/chunks/main-app-29466430c79adc42.js" async=""></script><script src="/_next/static/chunks/7068-a4cd9a6e0af45b4d.js" async=""></script><script src="/_next/static/chunks/7221-931ccc86aa295cd1.js" async=""></script><script src="/_next/static/chunks/app/layout-09e38df7cdd64f73.js" async=""></script><link data-rh="true" rel="icon" href="/logo.svg"/><title>Block-chain</title><meta name="description" content="block-chain"/><script src="/_next/static/chunks/polyfills-78c92fac7aa8fdd8.js" noModule=""></script></head><body><div class="wrapper-box"><nav class="nav"><style data-emotion="css 159i7d">.css-159i7d{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:justify;-webkit-justify-content:space-between;justify-content:space-between;height:100%;}</style><div class="MuiBox-root css-159i7d"><div class="flex"><style data-emotion="css 1lkqgm2">.css-1lkqgm2{width:36px;margin-left:10px;border-radius:20%;}</style><img class="MuiBox-root css-1lkqgm2" alt="icon" src="/logo.svg"/></div><style data-emotion="css 1wv2h5q">.css-1wv2h5q{width:30px;margin-right:10px;border-radius:50%;}</style><img class="MuiBox-root css-1wv2h5q" alt="icon" src="/github.svg"/></div></nav><div class="main-container"><div class="sidebar-container"><aside class="sidebar-content"><nav><ul class="sidebar-ul"><li><div class="flex sidebar_menuLink__JLsHD sidebar_menucaret__je0_C">React</div><ul></ul></li><li><div class="flex sidebar_menuLink__JLsHD sidebar_menucaret__je0_C">Nextjs</div><ul></ul></li><li><div class="flex sidebar_menuLink__JLsHD sidebar_menucaret__je0_C">Vue</div><ul></ul></li><li><div class="flex sidebar_menuLink__JLsHD">JavaScript</div><ul><li><a style="color:inherit" href="/js/eventLoop/">Event Loop</a></li><li><a style="color:inherit" href="/js/vite/">Vite</a></li><li><a style="color:inherit" href="/js/nodejs/">Nodejs</a></li><li><a style="color:inherit" href="/js/webpack1/">webpack 基本原理</a></li><li><a style="color:inherit" href="/js/webpack2/">微前端</a></li><li><a style="color:inherit" href="/js/throttleDebounce/">Throttle Debounce</a></li><li><div class="flex sidebar_menuLink__JLsHD sidebar_menucaret__je0_C">jsBase</div><ul></ul></li><li><div class="flex sidebar_menuLink__JLsHD sidebar_menucaret__je0_C">Promise</div><ul></ul></li><li><div class="flex sidebar_menuLink__JLsHD">ts</div><ul><li><a style="color:inherit" href="/ts/typeScript/">TypeScript</a></li><li><a style="color:inherit" href="/ts/interfaceType/">Interface type</a></li><li><a style="color:inherit" href="/ts/keyof/">Keyof</a></li><li><a style="color:inherit" href="/ts/generics/">Generics record</a></li><li><a style="color:inherit" href="/ts/decorator/">Decorator</a></li><li><a style="color:inherit" href="/ts/decorator2/">Decorator 2</a></li><li><a style="color:inherit" href="/ts/example/">Example</a></li></ul></li></ul></li><li><div class="flex sidebar_menuLink__JLsHD sidebar_menucaret__je0_C">Html css</div><ul></ul></li><li><div class="flex sidebar_menuLink__JLsHD sidebar_menucaret__je0_C">Web optimization</div><ul></ul></li><li><div class="flex sidebar_menuLink__JLsHD sidebar_menucaret__je0_C">Parsing interpretation compilation</div><ul></ul></li><li><div class="flex sidebar_menuLink__JLsHD sidebar_menucaret__je0_C">Http-browser</div><ul></ul></li><li><div class="flex sidebar_menuLink__JLsHD sidebar_menucaret__je0_C">Algorithm</div><ul></ul></li><li><div class="flex sidebar_menuLink__JLsHD sidebar_menucaret__je0_C">Docker</div><ul></ul></li><li><div class="flex sidebar_menuLink__JLsHD sidebar_menucaret__je0_C">Design patterns</div><ul></ul></li><li><a style="color:inherit" href="/resume/">Resume</a></li></ul></nav></aside></div><main class="md-container"><div class="empty-div"></div><article class="article"><h3>type 是 类型别名，给一些类型的组合起别名，这样能够更方便地在各个地方使用</h3>
+<blockquote>
+<p>type 声明的是类型别名，而 interface 声明的是新类型。
+一个不太重要但是值得说给面试官的区别</p>
+</blockquote>
+<p>语法：</p>
+<pre><code class="language-ts">interface Point {
+  x: number;
+  y: number;
+}
+
+type Point = {
+  x: number;
+  y: number;
+};
+</code></pre>
+<h3>interface 是 接口,interface 只能表示对象结构的类型</h3>
+<p>有点像 type，可以用来代表一种类型组合，但它范围更小一些，只能描述对象结构。</p>
+<pre><code class="language-js">// 1、都可以描述一个对象或者函数
+interface User {
+    name: string,
+    age: number
+}
+
+interface SetUser {
+    (name: string, age: number) : void
+}
+
+type User = {
+    name: string,
+    age: number
+}
+
+type SetUser = (name: string, age: number) =&gt; void
+</code></pre>
+<h2>type 可用于 string、number、bool、undefined、null</h2>
+<p>而 interface 只能描述对象（含数组、函数、包装对象、元组; type 后面有 =，interface 没有；</p>
+<pre><code class="language-js">// id 可以为字符串或数字，那么我们可以定义这么一个名为 ID 的 type
+type ID = string | number;
+
+定义一个名为 Circle 的对象结构 type：
+
+type Circle = {
+  x: number;
+  y: number;
+  radius: number;
+}
+</code></pre>
+<h3>type 可以 interface 不行:type 可以声明基本类别名，联合类型，元组类型</h3>
+<pre><code class="language-js">type Name = string
+
+interface Dog {
+  wong();
+}
+interface Cat {
+  miao();
+}
+
+type Pet = Dog | Cat;
+
+let a: Pet = {
+  wong() {},
+};
+</code></pre>
+<pre><code class="language-js">通过typeof获取实例的类型进行赋值
+let div = document.createElement(&#x27;div&#x27;)
+type B = typeof div
+</code></pre>
+<h2>同名 interface 会合并，而同名 type 会报错</h2>
+<pre><code class="language-js">interface Point {
+  x: number;
+}
+
+interface Point {
+  y: number;
+}
+
+const point: Point = { x: 10, y: 30 };
+</code></pre>
+<h2>相同点</h2>
+<ol>
+<li>
+<p>都能描述对象（含数组、函数、包装对象）</p>
+</li>
+<li>
+<p>都能用于扩展一个类型。type 用交叉类型做到这一点，interface 用 extends 做到这一点。
+接口是通过继承的方式来扩展，类型别名是通过 &amp; 来扩展。</p>
+</li>
+</ol>
+<p>type 可以通过 &amp; 的写法来继承 type 或 interface，得到一个交叉类型：</p>
+<pre><code class="language-js">type Shape = {
+    x: number;
+    y: number;
+}
+
+type Circle = Shape &amp; { r: number }
+
+const circle: Circle = { x: 0, y: 0, r: 8 }
+</code></pre>
+<h2>推荐：能用interface就用interface</h2>
+<p>其实这个解释官方说的也比较明确，这样使用的原因是因为更贴合 JavaScript 对象的工作方式，再清晰一些，如果我们是定义一个 object，那么最好是使用 interface 去做类型声明，什么时候用 type 呢，当定义一个 function 的时候，用 type 会更好一些：</p></article></main></div></div><script src="/_next/static/chunks/webpack-6a2c37dabd206ff9.js" async=""></script><script>(self.__next_f=self.__next_f||[]).push([0]);self.__next_f.push([2,null])</script><script>self.__next_f.push([1,"1:HL[\"/_next/static/css/08ccca47812646bd.css\",\"style\"]\n"])</script><script>self.__next_f.push([1,"2:I[75726,[],\"\"]\n4:I[31699,[],\"\"]\n5:I[22579,[],\"\"]\n6:I[76270,[\"7068\",\"static/chunks/7068-a4cd9a6e0af45b4d.js\",\"7221\",\"static/chunks/7221-931ccc86aa295cd1.js\",\"3185\",\"static/chunks/app/layout-09e38df7cdd64f73.js\"],\"NavWrapper\"]\n7:I[88961,[\"7068\",\"static/chunks/7068-a4cd9a6e0af45b4d.js\",\"7221\",\"static/chunks/7221-931ccc86aa295cd1.js\",\"3185\",\"static/chunks/app/layout-09e38df7cdd64f73.js\"],\"Sidebar\"]\n9:I[83141,[],\"\"]\na:[]\n"])</script><script>self.__next_f.push([1,"0:[[[\"$\",\"link\",\"0\",{\"rel\":\"stylesheet\",\"href\":\"/_next/static/css/08ccca47812646bd.css\",\"precedence\":\"next\",\"crossOrigin\":\"$undefined\"}]],[\"$\",\"$L2\",null,{\"buildId\":\"idwNcjK9Yt81I_gQ2xKBl\",\"assetPrefix\":\"\",\"initialCanonicalUrl\":\"/ts/interfaceType/\",\"initialTree\":[\"\",{\"children\":[\"ts\",{\"children\":[\"interfaceType\",{\"children\":[\"__PAGE__\",{}]}]}]},\"$undefined\",\"$undefined\",true],\"initialSeedData\":[\"\",{\"children\":[\"ts\",{\"children\":[\"interfaceType\",{\"children\":[\"__PAGE__\",{},[[\"$L3\",[[\"$\",\"h3\",null,{\"children\":\"type 是 类型别名，给一些类型的组合起别名，这样能够更方便地在各个地方使用\"}],\"\\n\",[\"$\",\"blockquote\",null,{\"children\":[\"\\n\",[\"$\",\"p\",null,{\"children\":\"type 声明的是类型别名，而 interface 声明的是新类型。\\n一个不太重要但是值得说给面试官的区别\"}],\"\\n\"]}],\"\\n\",[\"$\",\"p\",null,{\"children\":\"语法：\"}],\"\\n\",[\"$\",\"pre\",null,{\"children\":[\"$\",\"code\",null,{\"className\":\"language-ts\",\"children\":\"interface Point {\\n  x: number;\\n  y: number;\\n}\\n\\ntype Point = {\\n  x: number;\\n  y: number;\\n};\\n\"}]}],\"\\n\",[\"$\",\"h3\",null,{\"children\":\"interface 是 接口,interface 只能表示对象结构的类型\"}],\"\\n\",[\"$\",\"p\",null,{\"children\":\"有点像 type，可以用来代表一种类型组合，但它范围更小一些，只能描述对象结构。\"}],\"\\n\",[\"$\",\"pre\",null,{\"children\":[\"$\",\"code\",null,{\"className\":\"language-js\",\"children\":\"// 1、都可以描述一个对象或者函数\\ninterface User {\\n    name: string,\\n    age: number\\n}\\n\\ninterface SetUser {\\n    (name: string, age: number) : void\\n}\\n\\ntype User = {\\n    name: string,\\n    age: number\\n}\\n\\ntype SetUser = (name: string, age: number) =\u003e void\\n\"}]}],\"\\n\",[\"$\",\"h2\",null,{\"children\":\"type 可用于 string、number、bool、undefined、null\"}],\"\\n\",[\"$\",\"p\",null,{\"children\":\"而 interface 只能描述对象（含数组、函数、包装对象、元组; type 后面有 =，interface 没有；\"}],\"\\n\",[\"$\",\"pre\",null,{\"children\":[\"$\",\"code\",null,{\"className\":\"language-js\",\"children\":\"// id 可以为字符串或数字，那么我们可以定义这么一个名为 ID 的 type\\ntype ID = string | number;\\n\\n定义一个名为 Circle 的对象结构 type：\\n\\ntype Circle = {\\n  x: number;\\n  y: number;\\n  radius: number;\\n}\\n\"}]}],\"\\n\",[\"$\",\"h3\",null,{\"children\":\"type 可以 interface 不行:type 可以声明基本类别名，联合类型，元组类型\"}],\"\\n\",[\"$\",\"pre\",null,{\"children\":[\"$\",\"code\",null,{\"className\":\"language-js\",\"children\":\"type Name = string\\n\\ninterface Dog {\\n  wong();\\n}\\ninterface Cat {\\n  miao();\\n}\\n\\ntype Pet = Dog | Cat;\\n\\nlet a: Pet = {\\n  wong() {},\\n};\\n\"}]}],\"\\n\",[\"$\",\"pre\",null,{\"children\":[\"$\",\"code\",null,{\"className\":\"language-js\",\"children\":\"通过typeof获取实例的类型进行赋值\\nlet div = document.createElement('div')\\ntype B = typeof div\\n\"}]}],\"\\n\",[\"$\",\"h2\",null,{\"children\":\"同名 interface 会合并，而同名 type 会报错\"}],\"\\n\",[\"$\",\"pre\",null,{\"children\":[\"$\",\"code\",null,{\"className\":\"language-js\",\"children\":\"interface Point {\\n  x: number;\\n}\\n\\ninterface Point {\\n  y: number;\\n}\\n\\nconst point: Point = { x: 10, y: 30 };\\n\"}]}],\"\\n\",[\"$\",\"h2\",null,{\"children\":\"相同点\"}],\"\\n\",[\"$\",\"ol\",null,{\"children\":[\"\\n\",[\"$\",\"li\",null,{\"children\":[\"\\n\",[\"$\",\"p\",null,{\"children\":\"都能描述对象（含数组、函数、包装对象）\"}],\"\\n\"]}],\"\\n\",[\"$\",\"li\",null,{\"children\":[\"\\n\",[\"$\",\"p\",null,{\"children\":\"都能用于扩展一个类型。type 用交叉类型做到这一点，interface 用 extends 做到这一点。\\n接口是通过继承的方式来扩展，类型别名是通过 \u0026 来扩展。\"}],\"\\n\"]}],\"\\n\"]}],\"\\n\",[\"$\",\"p\",null,{\"children\":\"type 可以通过 \u0026 的写法来继承 type 或 interface，得到一个交叉类型：\"}],\"\\n\",[\"$\",\"pre\",null,{\"children\":[\"$\",\"code\",null,{\"className\":\"language-js\",\"children\":\"type Shape = {\\n    x: number;\\n    y: number;\\n}\\n\\ntype Circle = Shape \u0026 { r: number }\\n\\nconst circle: Circle = { x: 0, y: 0, r: 8 }\\n\"}]}],\"\\n\",[\"$\",\"h2\",null,{\"children\":\"推荐：能用interface就用interface\"}],\"\\n\",[\"$\",\"p\",null,{\"children\":\"其实这个解释官方说的也比较明确，这样使用的原因是因为更贴合 JavaScript 对象的工作方式，再清晰一些，如果我们是定义一个 object，那么最好是使用 interface 去做类型声明，什么时候用 type 呢，当定义一个 function 的时候，用 type 会更好一些：\"}]]],null],null]},[\"$\",\"$L4\",null,{\"parallelRouterKey\":\"children\",\"segmentPath\":[\"children\",\"ts\",\"children\",\"interfaceType\",\"children\"],\"error\":\"$undefined\",\"errorStyles\":\"$undefined\",\"errorScripts\":\"$undefined\",\"template\":[\"$\",\"$L5\",null,{}],\"templateStyles\":\"$undefined\",\"templateScripts\":\"$undefined\",\"notFound\":\"$undefined\",\"notFoundStyles\":\"$undefined\",\"styles\":null}],null]},[\"$\",\"$L4\",null,{\"parallelRouterKey\":\"children\",\"segmentPath\":[\"children\",\"ts\",\"children\"],\"error\":\"$undefined\",\"errorStyles\":\"$undefined\",\"errorScripts\":\"$undefined\",\"template\":[\"$\",\"$L5\",null,{}],\"templateStyles\":\"$undefined\",\"templateScripts\":\"$undefined\",\"notFound\":\"$undefined\",\"notFoundStyles\":\"$undefined\",\"styles\":null}],null]},[[\"$\",\"html\",null,{\"lang\":\"en\",\"children\":[[\"$\",\"head\",null,{\"children\":[[\"$\",\"meta\",null,{\"name\":\"viewport\",\"content\":\"width=device-width, initial-scale=1\"}],[\"$\",\"link\",null,{\"data-rh\":\"true\",\"rel\":\"icon\",\"href\":\"/logo.svg\"}]]}],[\"$\",\"body\",null,{\"children\":[\"$\",\"div\",null,{\"className\":\"wrapper-box\",\"children\":[[\"$\",\"$L6\",null,{}],[\"$\",\"div\",null,{\"className\":\"main-container\",\"children\":[[\"$\",\"$L7\",null,{\"isMobile\":false}],[\"$\",\"main\",null,{\"className\":\"md-container\",\"children\":[[\"$\",\"div\",null,{\"className\":\"empty-div\"}],[\"$\",\"article\",null,{\"className\":\"article\",\"children\":[\"$\",\"$L4\",null,{\"parallelRouterKey\":\"children\",\"segmentPath\":[\"children\"],\"error\":\"$undefined\",\"errorStyles\":\"$undefined\",\"errorScripts\":\"$undefined\",\"template\":[\"$\",\"$L5\",null,{}],\"templateStyles\":\"$undefined\",\"templateScripts\":\"$undefined\",\"notFound\":[[\"$\",\"title\",null,{\"children\":\"404: This page could not be found.\"}],[\"$\",\"div\",null,{\"style\":{\"fontFamily\":\"system-ui,\\\"Segoe UI\\\",Roboto,Helvetica,Arial,sans-serif,\\\"Apple Color Emoji\\\",\\\"Segoe UI Emoji\\\"\",\"height\":\"100vh\",\"textAlign\":\"center\",\"display\":\"flex\",\"flexDirection\":\"column\",\"alignItems\":\"center\",\"justifyContent\":\"center\"},\"children\":[\"$\",\"div\",null,{\"children\":[[\"$\",\"style\",null,{\"dangerouslySetInnerHTML\":{\"__html\":\"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}\"}}],[\"$\",\"h1\",null,{\"className\":\"next-error-h1\",\"style\":{\"display\":\"inline-block\",\"margin\":\"0 20px 0 0\",\"padding\":\"0 23px 0 0\",\"fontSize\":24,\"fontWeight\":500,\"verticalAlign\":\"top\",\"lineHeight\":\"49px\"},\"children\":\"404\"}],[\"$\",\"div\",null,{\"style\":{\"display\":\"inline-block\"},\"children\":[\"$\",\"h2\",null,{\"style\":{\"fontSize\":14,\"fontWeight\":400,\"lineHeight\":\"49px\",\"margin\":0},\"children\":\"This page could not be found.\"}]}]]}]}]],\"notFoundStyles\":[],\"styles\":null}]}]]}]]}]]}]}]]}],null],null],\"couldBeIntercepted\":false,\"initialHead\":[null,\"$L8\"],\"globalErrorComponent\":\"$9\",\"missingSlots\":\"$Wa\"}]]\n"])</script><script>self.__next_f.push([1,"8:[[\"$\",\"meta\",\"0\",{\"name\":\"viewport\",\"content\":\"width=device-width, initial-scale=1\"}],[\"$\",\"meta\",\"1\",{\"charSet\":\"utf-8\"}],[\"$\",\"title\",\"2\",{\"children\":\"Block-chain\"}],[\"$\",\"meta\",\"3\",{\"name\":\"description\",\"content\":\"block-chain\"}]]\n3:null\n"])</script></body></html>

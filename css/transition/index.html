@@ -1,0 +1,269 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="preload" as="image" href="/logo.svg"/><link rel="preload" as="image" href="/github.svg"/><link rel="stylesheet" href="/_next/static/css/08ccca47812646bd.css" data-precedence="next"/><link rel="preload" as="script" fetchPriority="low" href="/_next/static/chunks/webpack-6a2c37dabd206ff9.js"/><script src="/_next/static/chunks/f14ca715-4f4dbb6482451e0a.js" async=""></script><script src="/_next/static/chunks/5465-2089315387f88b08.js" async=""></script><script src="/_next/static/chunks/main-app-29466430c79adc42.js" async=""></script><script src="/_next/static/chunks/app/css/transition/page-205e0fe638d0bf76.js" async=""></script><script src="/_next/static/chunks/7068-a4cd9a6e0af45b4d.js" async=""></script><script src="/_next/static/chunks/7221-931ccc86aa295cd1.js" async=""></script><script src="/_next/static/chunks/app/layout-09e38df7cdd64f73.js" async=""></script><link data-rh="true" rel="icon" href="/logo.svg"/><title>Block-chain</title><meta name="description" content="block-chain"/><script src="/_next/static/chunks/polyfills-78c92fac7aa8fdd8.js" noModule=""></script></head><body><div class="wrapper-box"><nav class="nav"><style data-emotion="css 159i7d">.css-159i7d{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:justify;-webkit-justify-content:space-between;justify-content:space-between;height:100%;}</style><div class="MuiBox-root css-159i7d"><div class="flex"><style data-emotion="css 1lkqgm2">.css-1lkqgm2{width:36px;margin-left:10px;border-radius:20%;}</style><img class="MuiBox-root css-1lkqgm2" alt="icon" src="/logo.svg"/></div><style data-emotion="css 1wv2h5q">.css-1wv2h5q{width:30px;margin-right:10px;border-radius:50%;}</style><img class="MuiBox-root css-1wv2h5q" alt="icon" src="/github.svg"/></div></nav><div class="main-container"><div class="sidebar-container"><aside class="sidebar-content"><nav><ul class="sidebar-ul"><li><div class="flex sidebar_menuLink__JLsHD sidebar_menucaret__je0_C">React</div><ul></ul></li><li><div class="flex sidebar_menuLink__JLsHD sidebar_menucaret__je0_C">Nextjs</div><ul></ul></li><li><div class="flex sidebar_menuLink__JLsHD sidebar_menucaret__je0_C">Vue</div><ul></ul></li><li><div class="flex sidebar_menuLink__JLsHD sidebar_menucaret__je0_C">JavaScript</div><ul></ul></li><li><div class="flex sidebar_menuLink__JLsHD">Html css</div><ul><li><a style="color:inherit" href="/css/flex/">flex</a></li><li><a style="color:inherit" href="/css/basis/">basis</a></li><li><a style="color:inherit" href="/css/layout/">layout</a></li><li><a style="color:inherit" href="/css/horiz_vert/">horizontal vertical</a></li><li><a style="color:inherit" href="/css/grid/">grid</a></li><li><a style="color:inherit" href="/css/jsDom/">jsDom</a></li><li><a style="color:inherit" href="/css/gradient/">gradient</a></li><li><a style="color:inherit" href="/css/transform/">transform</a></li><li><a style="color:inherit" href="/css/transition/">transition</a></li><li><a style="color:inherit" href="/css/animation/">animation</a></li><li><a style="color:inherit" href="/css/requestAnimationFrame/">requestAnimationFrame</a></li><li><a style="color:inherit" href="/css/vueAnimation/">Vue Animation</a></li><li><div class="flex sidebar_menuLink__JLsHD sidebar_menucaret__je0_C">WebGL</div><ul></ul></li></ul></li><li><div class="flex sidebar_menuLink__JLsHD sidebar_menucaret__je0_C">Web optimization</div><ul></ul></li><li><div class="flex sidebar_menuLink__JLsHD sidebar_menucaret__je0_C">Parsing interpretation compilation</div><ul></ul></li><li><div class="flex sidebar_menuLink__JLsHD sidebar_menucaret__je0_C">Http-browser</div><ul></ul></li><li><div class="flex sidebar_menuLink__JLsHD sidebar_menucaret__je0_C">Algorithm</div><ul></ul></li><li><div class="flex sidebar_menuLink__JLsHD sidebar_menucaret__je0_C">Docker</div><ul></ul></li><li><div class="flex sidebar_menuLink__JLsHD sidebar_menucaret__je0_C">Design patterns</div><ul></ul></li><li><a style="color:inherit" href="/resume/">Resume</a></li></ul></nav></aside></div><main class="md-container"><div class="empty-div"></div><article class="article"><h2>transition过渡</h2>
+<p>CSS中最简单的动画叫做 transition。通常，当一个元素的样式属性值发生变化时，
+我们会立即看到页面元素发生变化，也就是页面元素从旧的属性值立即变成新的属性值的效果。</p>
+<p>让页面元素不是立即的、而是慢慢的从一种状态变成另外一种状态，从而表现出一种动画过程</p>
+<p>元素从一种样式逐渐改变为另一种的效果,有一个div，它的css样式如下：</p>
+<pre><code class="language-css">div {
+  width: 100px;
+  height: 100px;
+  background-color: #87cefa;
+  -webkit-transition: width 2s;
+  /*时长为2s的宽度变化效果*/
+  -moz-transition: width 2s;
+  -o-transition: width 2s;
+  transition: width 2s;
+}
+
+div:hover {
+  width: 300px;
+}
+</code></pre>
+<p>坑：</p>
+<ol>
+<li>
+<p>过渡只关系元素的初始状态和结束状态，没有方法可以获取元素在过渡中每一帧的状态</p>
+</li>
+<li>
+<p>元素在初次渲染还没有结束的时候，是没有办法触发过渡的</p>
+</li>
+<li>
+<p>在绝大部分变换样式的切换时，变换组合的个数或位置不一样时，是没有办法触发过渡的</p>
+</li>
+</ol>
+<h2>属性：</h2>
+<ul>
+<li>transition-property – 什么属性将用动画表现，例如, opacity。</li>
+<li>transition-duration – 转变过程持续时间。</li>
+<li>transition-timing-function – 转变时使用的调速函数(比如, linear、 ease-in 或自定义的 cubic bezier 函数)</li>
+</ul>
+<h3>transition-property 支持哪些属性？</h3>
+<p><strong>只有&quot;数值型&quot;属性才能过渡，&quot;离散型&quot;属性不能过渡。</strong></p>
+<h4>✅ 支持过渡的属性（常见）</h4>
+<p>| 类型 | 属性 | 示例 |
+|-----|------|------|
+| 尺寸 | width, height, max-width, min-height | 100px → 200px |
+| 位置 | top, left, right, bottom, margin, padding | 0 → 50px |
+| 透明度 | opacity | 0 → 1 |
+| 颜色 | color, background-color, border-color | red → blue |
+| 边框 | border-width, border-radius | 0 → 10px |
+| 变换 | transform (translate, rotate, scale) | scale(1) → scale(2) |
+| 文字 | font-size, font-weight, line-height | 12px → 24px |
+| 其他 | z-index, flex, visibility | visibility: visible → hidden |</p>
+<h4>❌ 不支持过渡的属性</h4>
+<p>| 属性 | 原因 |
+|-----|------|
+| display | 没有&quot;中间状态&quot;（none 和 block 之间没有过渡值） |
+| position | 离散值（static/absolute/fixed 之间没有过渡） |
+| float | 离散值 |
+| visibility | 特殊：可以过渡但效果不明显（只是延迟消失） |</p>
+<p><strong>理解：为什么 display 不能过渡？</strong></p>
+<pre><code>display 过渡示例：
+display: none → display: block
+
+问题：none 和 block 之间没有&quot;中间值&quot;
+不存在 display: half-block 这种值
+所以无法实现渐变效果
+
+✅ 替代方案：用 opacity + visibility 组合
+visibility: visible → hidden（延迟消失）
+opacity: 1 → 0（渐变透明）
+</code></pre>
+<p><strong>visibility 的特殊情况：</strong></p>
+<pre><code class="language-css">/* visibility 可以写进 transition，但效果是&quot;延迟消失&quot; */
+.box {
+  visibility: visible;
+  opacity: 1;
+  transition: visibility 0s 0.5s, opacity 0.5s;  /* opacity 0.5s渐变，visibility 0.5s后隐藏 */
+}
+
+.box:hover {
+  visibility: hidden;
+  opacity: 0;
+}
+</code></pre>
+<p>实例：transition–三种属性的合体简写</p>
+<pre><code class="language-css">div{
+  opacity: 1;
+  transition: opacity 1s linear;
+}
+div:hover {
+  opacity: 0;
+}
+</code></pre>
+<h2>扩展</h2>
+<p>【opacity属性】
+也是一个css3属性，该属性用于设置元素的不透明度级别，所有的浏览器都支持这个属性。
+语法：opacity: value|inherit;
+参数说明：
+value ：规定不透明度。从 0.0 （完全透明）到 1.0（完全不透明）</p>
+<p>实例1：
+opacity的变化过程将会持续2秒，而left值的变化过程将会持续4秒。</p>
+<pre><code class="language-css">div {
+  transition-property: opacity, left;
+  transition-duration: 2s, 4s;
+}
+</code></pre>
+<h2>其他</h2>
+<ul>
+<li>
+<p>transition-property
+指定过渡动画的属性（并不是所有的属性都可以动画）</p>
+</li>
+<li>
+<p>transition-duration
+指定过渡动画的时间（0也要带单位）</p>
+</li>
+<li>
+<p>transition-timing-function
+指定过渡动画的形式（贝塞尔）</p>
+</li>
+<li>
+<p>transition-delay
+指定过渡动画的延迟</p>
+</li>
+<li>
+<p>transition
+第一个可以被解析成时间的值会赋给transition-duration</p>
+</li>
+<li>
+<p>transtionend事件（DOM2),在每个属性完成过渡时都会触发这个事件</p>
+</li>
+<li>
+<p>当属性值的列表长度不一致时,跟时间有关的重复列表,transition-timing-function使用默认值</p>
+</li>
+</ul>
+<h2>例子</h2>
+<!-- -->
+<!--$!--><template data-dgst="BAILOUT_TO_CLIENT_SIDE_RENDERING"></template><!--/$-->
+<h2>transition-timing-function</h2>
+<!-- -->
+<!--$!--><template data-dgst="BAILOUT_TO_CLIENT_SIDE_RENDERING"></template><!--/$-->
+<h2>过渡天坑</h2>
+<p>transition在元素首次渲染还没有结束的情况下是不会被触发的</p>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+
+&lt;head&gt;
+	&lt;meta charset=&quot;UTF-8&quot;&gt;
+	&lt;title&gt;&lt;/title&gt;
+	&lt;style type=&quot;text/css&quot;&gt;
+		* {
+			margin: 0;
+			padding: 0;
+		}
+
+		html {
+			height: 100%;
+		}
+
+		body {
+			width: 60%;
+			height: 60%;
+			border: 1px solid;
+			margin: 100px auto 0;
+		}
+
+		#test {
+			width: 100px;
+			height: 100px;
+			background: pink;
+			text-align: center;
+			position: absolute;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			top: 0;
+			margin: auto;
+
+			transition-property: width;
+			transition-duration: 2s;
+			transition-timing-function: linear;
+		}
+	&lt;/style&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+	&lt;div id=&quot;test&quot;&gt;
+	&lt;/div&gt;
+&lt;/body&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+	// transition在元素首次渲染还没有结束的情况下是不会被触发的	
+	// window.onload=function(){
+	setTimeout(function () {
+		var test = document.querySelector(&quot;#test&quot;);
+		test.style.width = &quot;300px&quot;;
+	}, 3000)
+
+//		}
+&lt;/script&gt;
+
+&lt;/html&gt;
+</code></pre>
+<h2>过渡的简写属性</h2>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+
+&lt;head&gt;
+	&lt;meta charset=&quot;UTF-8&quot;&gt;
+	&lt;title&gt;&lt;/title&gt;
+	&lt;style type=&quot;text/css&quot;&gt;
+		* {
+			margin: 0;
+			padding: 0;
+		}
+
+		html {
+			height: 100%;
+		}
+
+		body {
+			width: 60%;
+			height: 60%;
+			border: 1px solid;
+			margin: 100px auto 0;
+		}
+
+		#test {
+			width: 200px;
+			height: 200px;
+			border-radius: 50%;
+			background: pink;
+			text-align: center;
+			font: 30px/100px &quot;微软雅黑&quot;;
+
+			/*display: block;*/
+
+			position: absolute;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			top: 0;
+			margin: auto;
+
+			/*transition-property: width,height;*/
+			/*transition-duration: 2s;*/
+			/*transition-timing-function:linear;*/
+
+			/*高度变完宽度再变，第二个参数是延迟3秒*/
+			transition: 2s 3s width, 3s height;
+
+			/*高宽一起变*/
+			/*transition: 2s width,3s height;*/
+		}
+
+		body:hover #test {
+			width: 100px;
+			height: 100px;
+			background: black;
+
+		}
+	&lt;/style&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+	&lt;div id=&quot;test&quot;&gt;
+	&lt;/div&gt;
+&lt;/body&gt;
+
+&lt;/html&gt;
+</code></pre></article></main></div></div><script src="/_next/static/chunks/webpack-6a2c37dabd206ff9.js" async=""></script><script>(self.__next_f=self.__next_f||[]).push([0]);self.__next_f.push([2,null])</script><script>self.__next_f.push([1,"1:HL[\"/_next/static/css/08ccca47812646bd.css\",\"style\"]\n"])</script><script>self.__next_f.push([1,"2:I[75726,[],\"\"]\n4:I[23613,[\"8390\",\"static/chunks/app/css/transition/page-205e0fe638d0bf76.js\"],\"default\"]\n6:I[31699,[],\"\"]\n7:I[22579,[],\"\"]\n8:I[76270,[\"7068\",\"static/chunks/7068-a4cd9a6e0af45b4d.js\",\"7221\",\"static/chunks/7221-931ccc86aa295cd1.js\",\"3185\",\"static/chunks/app/layout-09e38df7cdd64f73.js\"],\"NavWrapper\"]\n9:I[88961,[\"7068\",\"static/chunks/7068-a4cd9a6e0af45b4d.js\",\"7221\",\"static/chunks/7221-931ccc86aa295cd1.js\",\"3185\",\"static/chunks/app/layout-09e38df7cdd64f73.js\"],\"Sidebar\"]\nb:I[83141,[],\"\"]\n5:T499,\n\u003c!DOCTYPE html\u003e\n\u003chtml\u003e\n\n\u003chead\u003e\n\t\u003cmeta charset=\"UTF-8\"\u003e\n\t\u003ctitle\u003e\u003c/title\u003e\n\t\u003cstyle type=\"text/css\"\u003e\n\t\t* {\n\t\t\tmargin: 0;\n\t\t\tpadding: 0;\n\t\t}\n\n\t\thtml {\n\t\t\theight: 100%;\n\t\t}\n\n\t\tbody {\n\t\t\twidth: 60%;\n\t\t\theight: 60%;\n\t\t\tborder: 1px solid;\n\t\t\tmargin: 100px auto 0;\n\t\t}\n\n\t\t#test {\n\t\t\twidth: 100px;\n\t\t\theight: 100px;\n\t\t\tbackground: pink;\n\t\t\ttext-align: center;\n\t\t\tfont: 30px/100px \"微软雅黑\";\n\n\t\t\t/*display: block;*/\n\n\t\t\tposition: absolute;\n\t\t\tleft: 0;\n\t\t\tright: 0;\n\t\t\tbottom: 0;\n\t\t\ttop: 0;\n\t\t\tmargin: auto;\n\n\t\t\ttransition-property: width, height;\n\t\t\ttransition-duration: 2s;\n\t\t\ttransition-timing-function: linear;\n\t\t}\n\t\u003c/style\u003e\n\u003c/head\u003e\n\n\u003cbody\u003e\n\t\u003cdiv id=\"test\"\u003e\n    讲鼠标悬停在div\n\t\u003c/div\u003e\n\u003c/body\u003e\n\u003cscript type=\"text/javascript\"\u003e\n\twindow.onload = function () {\n\t\tvar testNode = document.querySelector(\"#test\");\n\t\tvar bodyNode = document.querySelector(\"body\");\n\t\t//dom0事件\n\t\tbodyNode.onmouseover = function () {\n\t\t\ttestNode.style.width = \"300px\";\n\t\t\ttestNode.style.height = \"300px\";\n\t\t\tsetTimeout(function () {\n\t\t\t\ttestNode.style.display = \"none\";\n\t\t\t}, 3000)\n\t\t}\n\t\t//dom2\n\t\ttestNode.addEventListener(\"transitionend\", function () {\n\t\t\talert(\"over\")\n\t\t})\n\t}\n\u003c/script\u003e\n\n\u003c/html\u003e\nc:[]\n"])</script><script>self.__next_f.push([1,"0:[[[\"$\",\"link\",\"0\",{\"rel\":\"stylesheet\",\"href\":\"/_next/static/css/08ccca47812646bd.css\",\"precedence\":\"next\",\"crossOrigin\":\"$undefined\"}]],[\"$\",\"$L2\",null,{\"buildId\":\"idwNcjK9Yt81I_gQ2xKBl\",\"assetPrefix\":\"\",\"initialCanonicalUrl\":\"/css/transition/\",\"initialTree\":[\"\",{\"children\":[\"css\",{\"children\":[\"transition\",{\"children\":[\"__PAGE__\",{}]}]}]},\"$undefined\",\"$undefined\",true],\"initialSeedData\":[\"\",{\"children\":[\"css\",{\"children\":[\"transition\",{\"children\":[\"__PAGE__\",{},[[\"$L3\",[[\"$\",\"h2\",null,{\"children\":\"transition过渡\"}],\"\\n\",[\"$\",\"p\",null,{\"children\":\"CSS中最简单的动画叫做 transition。通常，当一个元素的样式属性值发生变化时，\\n我们会立即看到页面元素发生变化，也就是页面元素从旧的属性值立即变成新的属性值的效果。\"}],\"\\n\",[\"$\",\"p\",null,{\"children\":\"让页面元素不是立即的、而是慢慢的从一种状态变成另外一种状态，从而表现出一种动画过程\"}],\"\\n\",[\"$\",\"p\",null,{\"children\":\"元素从一种样式逐渐改变为另一种的效果,有一个div，它的css样式如下：\"}],\"\\n\",[\"$\",\"pre\",null,{\"children\":[\"$\",\"code\",null,{\"className\":\"language-css\",\"children\":\"div {\\n  width: 100px;\\n  height: 100px;\\n  background-color: #87cefa;\\n  -webkit-transition: width 2s;\\n  /*时长为2s的宽度变化效果*/\\n  -moz-transition: width 2s;\\n  -o-transition: width 2s;\\n  transition: width 2s;\\n}\\n\\ndiv:hover {\\n  width: 300px;\\n}\\n\"}]}],\"\\n\",[\"$\",\"p\",null,{\"children\":\"坑：\"}],\"\\n\",[\"$\",\"ol\",null,{\"children\":[\"\\n\",[\"$\",\"li\",null,{\"children\":[\"\\n\",[\"$\",\"p\",null,{\"children\":\"过渡只关系元素的初始状态和结束状态，没有方法可以获取元素在过渡中每一帧的状态\"}],\"\\n\"]}],\"\\n\",[\"$\",\"li\",null,{\"children\":[\"\\n\",[\"$\",\"p\",null,{\"children\":\"元素在初次渲染还没有结束的时候，是没有办法触发过渡的\"}],\"\\n\"]}],\"\\n\",[\"$\",\"li\",null,{\"children\":[\"\\n\",[\"$\",\"p\",null,{\"children\":\"在绝大部分变换样式的切换时，变换组合的个数或位置不一样时，是没有办法触发过渡的\"}],\"\\n\"]}],\"\\n\"]}],\"\\n\",[\"$\",\"h2\",null,{\"children\":\"属性：\"}],\"\\n\",[\"$\",\"ul\",null,{\"children\":[\"\\n\",[\"$\",\"li\",null,{\"children\":\"transition-property – 什么属性将用动画表现，例如, opacity。\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"transition-duration – 转变过程持续时间。\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"transition-timing-function – 转变时使用的调速函数(比如, linear、 ease-in 或自定义的 cubic bezier 函数)\"}],\"\\n\"]}],\"\\n\",[\"$\",\"h3\",null,{\"children\":\"transition-property 支持哪些属性？\"}],\"\\n\",[\"$\",\"p\",null,{\"children\":[\"$\",\"strong\",null,{\"children\":\"只有\\\"数值型\\\"属性才能过渡，\\\"离散型\\\"属性不能过渡。\"}]}],\"\\n\",[\"$\",\"h4\",null,{\"children\":\"✅ 支持过渡的属性（常见）\"}],\"\\n\",[\"$\",\"p\",null,{\"children\":\"| 类型 | 属性 | 示例 |\\n|-----|------|------|\\n| 尺寸 | width, height, max-width, min-height | 100px → 200px |\\n| 位置 | top, left, right, bottom, margin, padding | 0 → 50px |\\n| 透明度 | opacity | 0 → 1 |\\n| 颜色 | color, background-color, border-color | red → blue |\\n| 边框 | border-width, border-radius | 0 → 10px |\\n| 变换 | transform (translate, rotate, scale) | scale(1) → scale(2) |\\n| 文字 | font-size, font-weight, line-height | 12px → 24px |\\n| 其他 | z-index, flex, visibility | visibility: visible → hidden |\"}],\"\\n\",[\"$\",\"h4\",null,{\"children\":\"❌ 不支持过渡的属性\"}],\"\\n\",[\"$\",\"p\",null,{\"children\":\"| 属性 | 原因 |\\n|-----|------|\\n| display | 没有\\\"中间状态\\\"（none 和 block 之间没有过渡值） |\\n| position | 离散值（static/absolute/fixed 之间没有过渡） |\\n| float | 离散值 |\\n| visibility | 特殊：可以过渡但效果不明显（只是延迟消失） |\"}],\"\\n\",[\"$\",\"p\",null,{\"children\":[\"$\",\"strong\",null,{\"children\":\"理解：为什么 display 不能过渡？\"}]}],\"\\n\",[\"$\",\"pre\",null,{\"children\":[\"$\",\"code\",null,{\"children\":\"display 过渡示例：\\ndisplay: none → display: block\\n\\n问题：none 和 block 之间没有\\\"中间值\\\"\\n不存在 display: half-block 这种值\\n所以无法实现渐变效果\\n\\n✅ 替代方案：用 opacity + visibility 组合\\nvisibility: visible → hidden（延迟消失）\\nopacity: 1 → 0（渐变透明）\\n\"}]}],\"\\n\",[\"$\",\"p\",null,{\"children\":[\"$\",\"strong\",null,{\"children\":\"visibility 的特殊情况：\"}]}],\"\\n\",[\"$\",\"pre\",null,{\"children\":[\"$\",\"code\",null,{\"className\":\"language-css\",\"children\":\"/* visibility 可以写进 transition，但效果是\\\"延迟消失\\\" */\\n.box {\\n  visibility: visible;\\n  opacity: 1;\\n  transition: visibility 0s 0.5s, opacity 0.5s;  /* opacity 0.5s渐变，visibility 0.5s后隐藏 */\\n}\\n\\n.box:hover {\\n  visibility: hidden;\\n  opacity: 0;\\n}\\n\"}]}],\"\\n\",[\"$\",\"p\",null,{\"children\":\"实例：transition–三种属性的合体简写\"}],\"\\n\",[\"$\",\"pre\",null,{\"children\":[\"$\",\"code\",null,{\"className\":\"language-css\",\"children\":\"div{\\n  opacity: 1;\\n  transition: opacity 1s linear;\\n}\\ndiv:hover {\\n  opacity: 0;\\n}\\n\"}]}],\"\\n\",[\"$\",\"h2\",null,{\"children\":\"扩展\"}],\"\\n\",[\"$\",\"p\",null,{\"children\":\"【opacity属性】\\n也是一个css3属性，该属性用于设置元素的不透明度级别，所有的浏览器都支持这个属性。\\n语法：opacity: value|inherit;\\n参数说明：\\nvalue ：规定不透明度。从 0.0 （完全透明）到 1.0（完全不透明）\"}],\"\\n\",[\"$\",\"p\",null,{\"children\":\"实例1：\\nopacity的变化过程将会持续2秒，而left值的变化过程将会持续4秒。\"}],\"\\n\",[\"$\",\"pre\",null,{\"children\":[\"$\",\"code\",null,{\"className\":\"language-css\",\"children\":\"div {\\n  transition-property: opacity, left;\\n  transition-duration: 2s, 4s;\\n}\\n\"}]}],\"\\n\",[\"$\",\"h2\",null,{\"children\":\"其他\"}],\"\\n\",[\"$\",\"ul\",null,{\"children\":[\"\\n\",[\"$\",\"li\",null,{\"children\":[\"\\n\",[\"$\",\"p\",null,{\"children\":\"transition-property\\n指定过渡动画的属性（并不是所有的属性都可以动画）\"}],\"\\n\"]}],\"\\n\",[\"$\",\"li\",null,{\"children\":[\"\\n\",[\"$\",\"p\",null,{\"children\":\"transition-duration\\n指定过渡动画的时间（0也要带单位）\"}],\"\\n\"]}],\"\\n\",[\"$\",\"li\",null,{\"children\":[\"\\n\",[\"$\",\"p\",null,{\"children\":\"transition-timing-function\\n指定过渡动画的形式（贝塞尔）\"}],\"\\n\"]}],\"\\n\",[\"$\",\"li\",null,{\"children\":[\"\\n\",[\"$\",\"p\",null,{\"children\":\"transition-delay\\n指定过渡动画的延迟\"}],\"\\n\"]}],\"\\n\",[\"$\",\"li\",null,{\"children\":[\"\\n\",[\"$\",\"p\",null,{\"children\":\"transition\\n第一个可以被解析成时间的值会赋给transition-duration\"}],\"\\n\"]}],\"\\n\",[\"$\",\"li\",null,{\"children\":[\"\\n\",[\"$\",\"p\",null,{\"children\":\"transtionend事件（DOM2),在每个属性完成过渡时都会触发这个事件\"}],\"\\n\"]}],\"\\n\",[\"$\",\"li\",null,{\"children\":[\"\\n\",[\"$\",\"p\",null,{\"children\":\"当属性值的列表长度不一致时,跟时间有关的重复列表,transition-timing-function使用默认值\"}],\"\\n\"]}],\"\\n\"]}],\"\\n\",[\"$\",\"h2\",null,{\"children\":\"例子\"}],\"\\n\",\"\\n\",[\"$\",\"$L4\",null,{\"name\":\"transition\",\"language\":\"html\",\"code\":\"\\n\u003c!DOCTYPE html\u003e\\n\u003chtml\u003e\\n\\n\u003chead\u003e\\n  \u003cstyle\u003e\\n    #transitionId {\\n      width: 100px;\\n      height: 100px;\\n      background: blue;\\n      transition-property: width;\\n      transition-duration: 2s;\\n\\n      -moz-transition-property: width;\\n      -moz-transition-duration: 2s;\\n\\n      -webkit-transition-property: width;\\n      -webkit-transition-duration: 2s;\\n\\n      -o-transition-property: width;\\n      -o-transition-duration: 2s;\\n    }\\n\\n    #transitionId:hover {\\n      width: 300px;\\n    }\\n  \u003c/style\u003e\\n\u003c/head\u003e\\n\\n\u003cbody\u003e\\n  \u003cdiv id='transitionId'\u003e\u003c/div\u003e\\n  \u003cp\u003e请把鼠标指针移动到蓝色的 div 元素上，就可以看到过渡效果。\u003c/p\u003e\\n\u003c/body\u003e\\n\\n\u003c/html\u003e\\n\",\"height\":\"500px\"}],\"\\n\",[\"$\",\"h2\",null,{\"children\":\"transition-timing-function\"}],\"\\n\",\"\\n\",[\"$\",\"$L4\",null,{\"name\":\"transition-timing-function\",\"language\":\"html\",\"code\":\"$5\",\"height\":\"500px\"}],\"\\n\",[\"$\",\"h2\",null,{\"children\":\"过渡天坑\"}],\"\\n\",[\"$\",\"p\",null,{\"children\":\"transition在元素首次渲染还没有结束的情况下是不会被触发的\"}],\"\\n\",[\"$\",\"pre\",null,{\"children\":[\"$\",\"code\",null,{\"className\":\"language-html\",\"children\":\"\u003c!DOCTYPE html\u003e\\n\u003chtml\u003e\\n\\n\u003chead\u003e\\n\\t\u003cmeta charset=\\\"UTF-8\\\"\u003e\\n\\t\u003ctitle\u003e\u003c/title\u003e\\n\\t\u003cstyle type=\\\"text/css\\\"\u003e\\n\\t\\t* {\\n\\t\\t\\tmargin: 0;\\n\\t\\t\\tpadding: 0;\\n\\t\\t}\\n\\n\\t\\thtml {\\n\\t\\t\\theight: 100%;\\n\\t\\t}\\n\\n\\t\\tbody {\\n\\t\\t\\twidth: 60%;\\n\\t\\t\\theight: 60%;\\n\\t\\t\\tborder: 1px solid;\\n\\t\\t\\tmargin: 100px auto 0;\\n\\t\\t}\\n\\n\\t\\t#test {\\n\\t\\t\\twidth: 100px;\\n\\t\\t\\theight: 100px;\\n\\t\\t\\tbackground: pink;\\n\\t\\t\\ttext-align: center;\\n\\t\\t\\tposition: absolute;\\n\\t\\t\\tleft: 0;\\n\\t\\t\\tright: 0;\\n\\t\\t\\tbottom: 0;\\n\\t\\t\\ttop: 0;\\n\\t\\t\\tmargin: auto;\\n\\n\\t\\t\\ttransition-property: width;\\n\\t\\t\\ttransition-duration: 2s;\\n\\t\\t\\ttransition-timing-function: linear;\\n\\t\\t}\\n\\t\u003c/style\u003e\\n\u003c/head\u003e\\n\\n\u003cbody\u003e\\n\\t\u003cdiv id=\\\"test\\\"\u003e\\n\\t\u003c/div\u003e\\n\u003c/body\u003e\\n\u003cscript type=\\\"text/javascript\\\"\u003e\\n\\t// transition在元素首次渲染还没有结束的情况下是不会被触发的\\t\\n\\t// window.onload=function(){\\n\\tsetTimeout(function () {\\n\\t\\tvar test = document.querySelector(\\\"#test\\\");\\n\\t\\ttest.style.width = \\\"300px\\\";\\n\\t}, 3000)\\n\\n//\\t\\t}\\n\u003c/script\u003e\\n\\n\u003c/html\u003e\\n\"}]}],\"\\n\",[\"$\",\"h2\",null,{\"children\":\"过渡的简写属性\"}],\"\\n\",[\"$\",\"pre\",null,{\"children\":[\"$\",\"code\",null,{\"className\":\"language-html\",\"children\":\"\u003c!DOCTYPE html\u003e\\n\u003chtml\u003e\\n\\n\u003chead\u003e\\n\\t\u003cmeta charset=\\\"UTF-8\\\"\u003e\\n\\t\u003ctitle\u003e\u003c/title\u003e\\n\\t\u003cstyle type=\\\"text/css\\\"\u003e\\n\\t\\t* {\\n\\t\\t\\tmargin: 0;\\n\\t\\t\\tpadding: 0;\\n\\t\\t}\\n\\n\\t\\thtml {\\n\\t\\t\\theight: 100%;\\n\\t\\t}\\n\\n\\t\\tbody {\\n\\t\\t\\twidth: 60%;\\n\\t\\t\\theight: 60%;\\n\\t\\t\\tborder: 1px solid;\\n\\t\\t\\tmargin: 100px auto 0;\\n\\t\\t}\\n\\n\\t\\t#test {\\n\\t\\t\\twidth: 200px;\\n\\t\\t\\theight: 200px;\\n\\t\\t\\tborder-radius: 50%;\\n\\t\\t\\tbackground: pink;\\n\\t\\t\\ttext-align: center;\\n\\t\\t\\tfont: 30px/100px \\\"微软雅黑\\\";\\n\\n\\t\\t\\t/*display: block;*/\\n\\n\\t\\t\\tposition: absolute;\\n\\t\\t\\tleft: 0;\\n\\t\\t\\tright: 0;\\n\\t\\t\\tbottom: 0;\\n\\t\\t\\ttop: 0;\\n\\t\\t\\tmargin: auto;\\n\\n\\t\\t\\t/*transition-property: width,height;*/\\n\\t\\t\\t/*transition-duration: 2s;*/\\n\\t\\t\\t/*transition-timing-function:linear;*/\\n\\n\\t\\t\\t/*高度变完宽度再变，第二个参数是延迟3秒*/\\n\\t\\t\\ttransition: 2s 3s width, 3s height;\\n\\n\\t\\t\\t/*高宽一起变*/\\n\\t\\t\\t/*transition: 2s width,3s height;*/\\n\\t\\t}\\n\\n\\t\\tbody:hover #test {\\n\\t\\t\\twidth: 100px;\\n\\t\\t\\theight: 100px;\\n\\t\\t\\tbackground: black;\\n\\n\\t\\t}\\n\\t\u003c/style\u003e\\n\u003c/head\u003e\\n\\n\u003cbody\u003e\\n\\t\u003cdiv id=\\\"test\\\"\u003e\\n\\t\u003c/div\u003e\\n\u003c/body\u003e\\n\\n\u003c/html\u003e\\n\"}]}]]],null],null]},[\"$\",\"$L6\",null,{\"parallelRouterKey\":\"children\",\"segmentPath\":[\"children\",\"css\",\"children\",\"transition\",\"children\"],\"error\":\"$undefined\",\"errorStyles\":\"$undefined\",\"errorScripts\":\"$undefined\",\"template\":[\"$\",\"$L7\",null,{}],\"templateStyles\":\"$undefined\",\"templateScripts\":\"$undefined\",\"notFound\":\"$undefined\",\"notFoundStyles\":\"$undefined\",\"styles\":null}],null]},[\"$\",\"$L6\",null,{\"parallelRouterKey\":\"children\",\"segmentPath\":[\"children\",\"css\",\"children\"],\"error\":\"$undefined\",\"errorStyles\":\"$undefined\",\"errorScripts\":\"$undefined\",\"template\":[\"$\",\"$L7\",null,{}],\"templateStyles\":\"$undefined\",\"templateScripts\":\"$undefined\",\"notFound\":\"$undefined\",\"notFoundStyles\":\"$undefined\",\"styles\":null}],null]},[[\"$\",\"html\",null,{\"lang\":\"en\",\"children\":[[\"$\",\"head\",null,{\"children\":[[\"$\",\"meta\",null,{\"name\":\"viewport\",\"content\":\"width=device-width, initial-scale=1\"}],[\"$\",\"link\",null,{\"data-rh\":\"true\",\"rel\":\"icon\",\"href\":\"/logo.svg\"}]]}],[\"$\",\"body\",null,{\"children\":[\"$\",\"div\",null,{\"className\":\"wrapper-box\",\"children\":[[\"$\",\"$L8\",null,{}],[\"$\",\"div\",null,{\"className\":\"main-container\",\"children\":[[\"$\",\"$L9\",null,{\"isMobile\":false}],[\"$\",\"main\",null,{\"className\":\"md-container\",\"children\":[[\"$\",\"div\",null,{\"className\":\"empty-div\"}],[\"$\",\"article\",null,{\"className\":\"article\",\"children\":[\"$\",\"$L6\",null,{\"parallelRouterKey\":\"children\",\"segmentPath\":[\"children\"],\"error\":\"$undefined\",\"errorStyles\":\"$undefined\",\"errorScripts\":\"$undefined\",\"template\":[\"$\",\"$L7\",null,{}],\"templateStyles\":\"$undefined\",\"templateScripts\":\"$undefined\",\"notFound\":[[\"$\",\"title\",null,{\"children\":\"404: This page could not be found.\"}],[\"$\",\"div\",null,{\"style\":{\"fontFamily\":\"system-ui,\\\"Segoe UI\\\",Roboto,Helvetica,Arial,sans-serif,\\\"Apple Color Emoji\\\",\\\"Segoe UI Emoji\\\"\",\"height\":\"100vh\",\"textAlign\":\"center\",\"display\":\"flex\",\"flexDirection\":\"column\",\"alignItems\":\"center\",\"justifyContent\":\"center\"},\"children\":[\"$\",\"div\",null,{\"children\":[[\"$\",\"style\",null,{\"dangerouslySetInnerHTML\":{\"__html\":\"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}\"}}],[\"$\",\"h1\",null,{\"className\":\"next-error-h1\",\"style\":{\"display\":\"inline-block\",\"margin\":\"0 20px 0 0\",\"padding\":\"0 23px 0 0\",\"fontSize\":24,\"fontWeight\":500,\"verticalAlign\":\"top\",\"lineHeight\":\"49px\"},\"children\":\"404\"}],[\"$\",\"div\",null,{\"style\":{\"display\":\"inline-block\"},\"children\":[\"$\",\"h2\",null,{\"style\":{\"fontSize\":14,\"fontWeight\":400,\"lineHeight\":\"49px\",\"margin\":0},\"children\":\"This page could not be found.\"}]}]]}]}]],\"notFoundStyles\":[],\"styles\":null}]}]]}]]}]]}]}]]}],null],null],\"couldBeIntercepted\":false,\"initialHead\":[null,\"$La\"],\"globalErrorComponent\":\"$b\",\"missingSlots\":\"$Wc\"}]]\n"])</script><script>self.__next_f.push([1,"a:[[\"$\",\"meta\",\"0\",{\"name\":\"viewport\",\"content\":\"width=device-width, initial-scale=1\"}],[\"$\",\"meta\",\"1\",{\"charSet\":\"utf-8\"}],[\"$\",\"title\",\"2\",{\"children\":\"Block-chain\"}],[\"$\",\"meta\",\"3\",{\"name\":\"description\",\"content\":\"block-chain\"}]]\n3:null\n"])</script></body></html>
